@@ -27,6 +27,8 @@ var menu =
 document.querySelector('.menu_container')
 var close_menu = 
 document.querySelector('.close_menu')
+var music_cover = document.getElementById('logo')
+
 
 var toogle_container = document.getElementById('toggle_container')
 var container = document.querySelector('.container')
@@ -89,6 +91,7 @@ function nextbtn()
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
     audio_img.setAttribute('src', audio_cover[i])
+         music_cover.setAttribute('href', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   } 
@@ -97,6 +100,7 @@ function nextbtn()
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
     audio_img.setAttribute('src', audio_cover[i])
+         music_cover.setAttribute('href', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   } 
@@ -120,6 +124,7 @@ function prevbtn()
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
     audio_img.setAttribute('src', audio_cover[i])
+         music_cover.setAttribute('href', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   } else {
@@ -127,6 +132,7 @@ function prevbtn()
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
     audio_img.setAttribute('src', audio_cover[i])
+         music_cover.setAttribute('href', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   }
@@ -140,11 +146,14 @@ function showAudio(){
     i++
     audio_src.setAttribute('src', audios[i])
     audio_img.setAttribute('src', audio_cover[i])
+         music_cover.setAttribute('href', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   } else {
+    i = 0
     audio_src.setAttribute('src', audios[i])
     audio_img.setAttribute('src', audio_cover[i])
+         music_cover.setAttribute('href', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   }
