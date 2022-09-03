@@ -1,8 +1,10 @@
-let audios = ['/drill/ Pat Saraby - Peace of Mind.mp3', '/drill/ Skizz - Loading.mp3', '/drill/A$H 96 - V6.mp3', '/drill/C1 - Plugged In W_ Fumez The Engineer.mp3', '/drill/Central Cee -  Day In The Life.mp3','/drill/Central Cee - Loading.mp3', '/drill/Drillas Big Cee - Bad Guy.mp3','/drill/RG X Britz - Destination.mp3','/drill/Voice of the Truth 2.mp3 ' ] 
-let audio_cover = ['/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/logo/Centc-2.jpg', '/logo/Centc-2.jpg', '/logo/sound.png', '/logo/sound.png']
-let audio_name = ['Peace of mind', 'Loading', 'V6', 'Plugged In', 'Day in life', 'Loading', 'Bad guy', 'Destination', 'Voice of the Truth 2']
+let audios = ['/drill/ Pat Saraby - Peace of Mind.mp3', '/drill/ Skizz - Loading.mp3', '/drill/A$H 96 - V6.mp3', '/drill/C1 - Plugged In W_ Fumez The Engineer.mp3', '/drill/Central Cee -  Day In The Life.mp3','/drill/Central Cee - Loading.mp3', '/drill/Drillas Big Cee - Bad Guy.mp3','/drill/RG X Britz - Destination.mp3','/drill/Voice of the Truth 2.mp3', '/drill/ Arrdee.mp3', '/drill/ BM X Mini X Sava - NHS.mp3', '/drill/ Freeze Corleone 667 feat. Central Cee - Polémique.mp3', '/drill/ Poundz - Fake Love.mp3', '/drill/ Skengdo x AM x Lil Rass x BM x Mini x Rack5 x TY x Mskum.mp3', '/drill/PR SAD - One Wish.mp3']
 
-let audio_author = ['Pat Saraby', 'Skizz', 'A$H 96','Fumez the engineer', 'Central Cee', 'Central Cee', 'Drillas Big Cee', 'RG x Britz', 'Birmingham']
+let audio_cover = ['/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/logo/Centc-2.jpg', '/logo/Centc-2.jpg', '/logo/sound.png', '/logo/sound.png','/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/logo/sound.png']
+
+let audio_name = ['Peace of mind', 'Loading', 'Turbo Fast', 'Plugged In', 'Day in life', 'Loading', 'Bad guy', 'Destination', 'Voice of the Truth 2', 'Freestyle', 'NHS', 'Polémique', 'Fake Love', 'Mskum', 'One Wish']
+
+let audio_author = ['Pat Saraby', 'Skizz', 'A$H 96','Fumez the engineer', 'Central Cee', 'Central Cee', 'Drillas Big Cee', 'RG x Britz', 'Birmingham', 'Arrdee', 'Bm x Mini x Sava', 'Freeze Corleone ft Central Cee', 'Poundz', 'Skengdo x Am x Lil Rass x Bm x Mini x Rack5 x TY', 'PR SAD']
 
 const audio_src = 
 document.getElementById('audio_src')
@@ -133,16 +135,17 @@ function prevbtn()
      document.getElementById('current_song').innerHTML = i +'/'
      playState.classList.replace('fa-play', 'fa-pause')
     audio_src.setAttribute('src', audios[i])
-     audio_src.play()
      audio_img.setAttribute('src', audio_cover[i])
      music_cover.setAttribute('href', audio_cover[i])
+      audio_src.play()
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   } else {
     i = audios.length - 1  || audio_name.length - 1 || audio_author.length - 1
       document.getElementById('current_song').innerHTML = i +'/'
-     audio_src.play()
     audio_img.setAttribute('src', audio_cover[i])
+     audio_src.setAttribute('src', audios[i])
+     audio_src.play()
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   }
