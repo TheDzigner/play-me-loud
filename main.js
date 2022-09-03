@@ -1,4 +1,4 @@
-let audios = ['/audio/ Migos - _Fucking Up Profits_ (Official Audio) (128 kbps).mp3', '/audio/DJ_Durel,_Migos_-_Hot_Summer_(Official_Video)(256k).mp3', '/audio/Future - Mask Off.mp3', '/audio/Kodak Black - Usain Boo .mp3', '/audio/Lil Yachty - MICKEY ft. Offset, Lil Baby.mp3', '/audio/Megan_Thee_Stallion_-_Cry_Baby_(feat._DaBaby)_[Official_Audio](256k).mp3', '/audio/Migos - T-Shirt.mp3', '/audio/NAV_-_Myself_(Official_Music_Video)(128k).mp3', '/audio/Quavo & Takeoff - Hotel Lobby .mp3', '/audio/Rich_The_Kid_-_Lost_It_ft._Quavo_&_Offset_(The_World_Is_Yours)(128k).mp3','/audio/SleazyWorld Go - Step 1 ft. Offset.mp3', '/audio/SPOTEMGOTTEM_Feat._Pooh_Shiesty_-Beatbox_2-_(Official_Video)(128k).mp3', '/audio/Stripper Bowl.mp3', '/audio/Takeoff.mp3', '/audio/YNW Melly - Murder On My Mind.mp3', '/audio/yt5s.com - Fivio Foreign - Magic City (Official Video) ft. Quavo (128 kbps).mp3','/audio/yt5s.com - Migos - Movin\' Too Fast (Audio) (192 kbps).mp3', '/audio/yt5s.com - Quality Control - Too Hotty by Migos featuring Eurielle (128 kbps).mp3', '/audio/yt5s.com - Remble - Rocc Climbing (feat. Lil Yachty) [Official Music Video] (128 kbps).mp3', '/audio/yt5s.com - Takeoff, Rich The Kid - Crypto (Official Video) (128 kbps).mp3']
+  let audios = ['/audio/ Migos - _Fucking Up Profits_ (Official Audio) (128 kbps).mp3', '/audio/DJ_Durel,_Migos_-_Hot_Summer_(Official_Video)(256k).mp3', '/audio/Future - Mask Off.mp3', '/audio/Kodak Black - Usain Boo .mp3', '/audio/Lil Yachty - MICKEY ft. Offset, Lil Baby.mp3', '/audio/Megan_Thee_Stallion_-_Cry_Baby_(feat._DaBaby)_[Official_Audio](256k).mp3', '/audio/Migos - T-Shirt.mp3', '/audio/NAV_-_Myself_(Official_Music_Video)(128k).mp3', '/audio/Quavo & Takeoff - Hotel Lobby .mp3', '/audio/Rich_The_Kid_-_Lost_It_ft._Quavo_&_Offset_(The_World_Is_Yours)(128k).mp3','/audio/SleazyWorld Go - Step 1 ft. Offset.mp3', '/audio/SPOTEMGOTTEM_Feat._Pooh_Shiesty_-Beatbox_2-_(Official_Video)(128k).mp3', '/audio/Stripper Bowl.mp3', '/audio/Takeoff.mp3', '/audio/YNW Melly - Murder On My Mind.mp3', '/audio/yt5s.com - Fivio Foreign - Magic City (Official Video) ft. Quavo (128 kbps).mp3','/audio/yt5s.com - Migos - Movin\' Too Fast (Audio) (192 kbps).mp3', '/audio/yt5s.com - Quality Control - Too Hotty by Migos featuring Eurielle (128 kbps).mp3', '/audio/yt5s.com - Remble - Rocc Climbing (feat. Lil Yachty) [Official Music Video] (128 kbps).mp3', '/audio/yt5s.com - Takeoff, Rich The Kid - Crypto (Official Video) (128 kbps).mp3']
 
 let audio_cover = ['/cover/20210402_183558.jpg', '/cover/Migos-Hot-Summer-Prod.-DJ-Durel.jpg', '/cover/Future-Mask-Off.jpg', '/cover/usain_boo.jpg', '/cover/Lil_Yachty_–_Lil_Boat_2.png', '/cover/cry_baby.jpeg', '/cover/migos_tshirt.jpg', '/cover/nav_myselft.png', '/cover/migos_hotel_lobby.jpg', '/cover/lost_it.png', '/cover/step_one.jpeg', '/cover/beatbox.jpeg', '/cover/quality_vol2.jpg', '/cover/thelastrocket.jpg', '/cover/murder_on_my_mind.jpg', '/cover/magic_city.png', '/cover/culture_2.jpg','/cover/quality_vol1.png', '/cover/rocc_climbing.jpeg', '/cover/crypto.jpeg']
 
@@ -56,19 +56,27 @@ audio_length.addEventListener('input',function(){
 audio_src.addEventListener('timeupdate',function (){
   audio_length.value = Math.floor(audio_src.currentTime )
   audio_length.max = Math.floor(audio_src.duration)
-  if (audio_length.value == Math.floor(audio_src.duration) ) {
-    i++
-    document.getElementById('current_song').innerHTML = i +'/'
-    audio_src.setAttribute('src', audios[i])
-    audio_src.play()
-    audio_img.setAttribute('src', audio_cover[i])
-    document.getElementById('audio_name').innerHTML = audio_name[i]
-    document.getElementById('audio_author').innerHTML = audio_author[i]
-  } 
 })
 
-
-  
+audio_src.addEventListener('ended', function() {
+  if (i < audios.length - 1 || i < audio_name.length - 1 || i < audio_author.length - 1) {
+    i++
+    document.getElementById('current_song').innerHTML = i + '/'
+    playState.classList.replace('fa-play', 'fa-pause')
+    audio_src.setAttribute('src', audios[i])
+    audio_src.play()
+    document.getElementById('audio_name').innerHTML = audio_name[i]
+    document.getElementById('audio_author').innerHTML = audio_author[i]
+  }
+  else {
+    i = 0
+    document.getElementById('current_song').innerHTML = i + '/'
+    audio_src.setAttribute('src', audios[i])
+    audio_src.play()
+    document.getElementById('audio_name').innerHTML = audio_name[i]
+    document.getElementById('audio_author').innerHTML = audio_author[i]
+  }
+})  
 
 function playbtn()
 {
@@ -101,7 +109,6 @@ function nextbtn()
     playState.classList.replace('fa-play', 'fa-pause')
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
-     audio_src.loop = true;
      music_cover.setAttribute('href', audio_cover[i])
      console.log(music_cover)
     audio_img.setAttribute('src', audio_cover[i])

@@ -58,18 +58,28 @@ audio_length.addEventListener('input',function(){
 audio_src.addEventListener('timeupdate',function (){
   audio_length.value = Math.floor(audio_src.currentTime )
   audio_length.max = Math.floor(audio_src.duration)
-  if (audio_length.value == Math.floor(audio_src.duration) ) {
-    i++
-    audio_src.setAttribute('src', audios[i])
-    audio_src.play()
-    document.getElementById('audio_name').innerHTML = audio_name[i]
-    document.getElementById('audio_author').innerHTML = audio_author[i]
-  } 
-
 })
 
 
-  
+  audio_src.addEventListener('ended', function() {
+    if (i < audios.length - 1 || i < audio_name.length - 1 || i < audio_author.length - 1) {
+      i++
+      document.getElementById('current_song').innerHTML = i + '/'
+      playState.classList.replace('fa-play', 'fa-pause')
+      audio_src.setAttribute('src', audios[i])
+      audio_src.play()
+      document.getElementById('audio_name').innerHTML = audio_name[i]
+      document.getElementById('audio_author').innerHTML = audio_author[i]
+    }
+    else {
+      i = 0
+      document.getElementById('current_song').innerHTML = i + '/'
+      audio_src.setAttribute('src', audios[i])
+      audio_src.play()
+      document.getElementById('audio_name').innerHTML = audio_name[i]
+      document.getElementById('audio_author').innerHTML = audio_author[i]
+    }
+  })
 
 function playbtn()
 {
