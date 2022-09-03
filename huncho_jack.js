@@ -57,6 +57,7 @@ audio_src.addEventListener('timeupdate',function (){
   audio_length.max = Math.floor(audio_src.duration)
   if (audio_length.value == Math.floor(audio_src.duration) ) {
     i++
+         document.getElementById('current_song').innerHTML = i +'/'
     audio_src.setAttribute('src', audios[i])
     audio_src.play()
     document.getElementById('audio_name').innerHTML = audio_name[i]
