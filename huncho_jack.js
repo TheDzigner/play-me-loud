@@ -56,9 +56,7 @@ audio_src.addEventListener('timeupdate',function (){
   audio_length.value = Math.floor(audio_src.currentTime )
   audio_length.max = Math.floor(audio_src.duration)
   if (audio_length.value == Math.floor(audio_src.duration) ) {
-    
-        document.getElementById('current_song').innerHTML = i +'/'
-
+    i++
     audio_src.setAttribute('src', audios[i])
     audio_src.play()
     document.getElementById('audio_name').innerHTML = audio_name[i]
@@ -137,6 +135,7 @@ function prevbtn()
     i = audios.length - 1  || audio_name.length - 1 || audio_author.length - 1
       document.getElementById('current_song').innerHTML = i +'/'
      audio_src.play()
+     audio_src.setAttribute('src', audios[i])
     audio_img.setAttribute('src', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
