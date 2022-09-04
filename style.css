@@ -36,18 +36,22 @@ body {
 {
   width:18%;
   object-fit: cover;
-  padding:5px ;
+  margin:7px;
   display:block ;
   position:relative ;
-  animation: anim_logo  1s 200ms alternate infinite;
+  border-radius:50%;
+  animation: anim_logo  1.3s cubic-bezier(.2, 1, 0, 2) alternate infinite;
 }
 @keyframes anim_logo
 {
-  100%{
-      transform:rotate(180deg);
-      
-  } 
- 
+ 50%{
+   outline: 1px solid ghostwhite ;
+     outline-offset:-5px;
+ }
+ 60%{
+     outline: 3px solid ghostwhite ;
+     outline-offset:1px;
+ }
 }
 .expand_cover  h4 
 {
