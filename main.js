@@ -1,10 +1,11 @@
-  let audios = ['/audio/ Migos - _Fucking Up Profits_ (Official Audio) (128 kbps).mp3', '/audio/DJ_Durel,_Migos_-_Hot_Summer_(Official_Video)(256k).mp3', '/audio/Future - Mask Off.mp3', '/audio/Kodak Black - Usain Boo .mp3', '/audio/Lil Yachty - MICKEY ft. Offset, Lil Baby.mp3', '/audio/Megan_Thee_Stallion_-_Cry_Baby_(feat._DaBaby)_[Official_Audio](256k).mp3', '/audio/Migos - T-Shirt.mp3', '/audio/NAV_-_Myself_(Official_Music_Video)(128k).mp3', '/audio/Quavo & Takeoff - Hotel Lobby .mp3', '/audio/Rich_The_Kid_-_Lost_It_ft._Quavo_&_Offset_(The_World_Is_Yours)(128k).mp3','/audio/SleazyWorld Go - Step 1 ft. Offset.mp3', '/audio/SPOTEMGOTTEM_Feat._Pooh_Shiesty_-Beatbox_2-_(Official_Video)(128k).mp3', '/audio/Stripper Bowl.mp3', '/audio/Takeoff.mp3', '/audio/YNW Melly - Murder On My Mind.mp3', '/audio/yt5s.com - Fivio Foreign - Magic City (Official Video) ft. Quavo (128 kbps).mp3','/audio/yt5s.com - Migos - Movin\' Too Fast (Audio) (192 kbps).mp3', '/audio/yt5s.com - Quality Control - Too Hotty by Migos featuring Eurielle (128 kbps).mp3', '/audio/yt5s.com - Remble - Rocc Climbing (feat. Lil Yachty) [Official Music Video] (128 kbps).mp3', '/audio/yt5s.com - Takeoff, Rich The Kid - Crypto (Official Video) (128 kbps).mp3']
+  let audios = ['/audio/ Migos - _Fucking Up Profits_ (Official Audio) (128 kbps).mp3', '/audio/DJ_Durel,_Migos_-_Hot_Summer_(Official_Video)(256k).mp3', '/audio/Future - Mask Off.mp3', '/audio/Kodak Black - Usain Boo .mp3', '/audio/Lil Yachty - MICKEY ft. Offset, Lil Baby.mp3', '/audio/Megan_Thee_Stallion_-_Cry_Baby_(feat._DaBaby)_[Official_Audio](256k).mp3', '/audio/Migos - T-Shirt.mp3', '/audio/NAV_-_Myself_(Official_Music_Video)(128k).mp3', '/audio/Quavo & Takeoff - Hotel Lobby .mp3', '/audio/Rich_The_Kid_-_Lost_It_ft._Quavo_&_Offset_(The_World_Is_Yours)(128k).mp3','/audio/SleazyWorld Go - Step 1 ft. Offset.mp3', '/audio/SPOTEMGOTTEM_Feat._Pooh_Shiesty_-Beatbox_2-_(Official_Video)(128k).mp3', '/audio/Stripper Bowl.mp3', '/audio/Takeoff.mp3', '/audio/YNW Melly - Murder On My Mind.mp3', '/audio/yt5s.com - Fivio Foreign - Magic City (Official Video) ft. Quavo (128 kbps).mp3','/audio/yt5s.com - Migos - Movin\' Too Fast (Audio) (192 kbps).mp3', '/audio/yt5s.com - Quality Control - Too Hotty by Migos featuring Eurielle (128 kbps).mp3', '/audio/yt5s.com - Remble - Rocc Climbing (feat. Lil Yachty) [Official Music Video] (128 kbps).mp3', '/audio/yt5s.com - Takeoff, Rich The Kid - Crypto (Official Video) (128 kbps).mp3', '/audio/French Montana & Drake - No Stylist.mp3', '/audio/ - Quavo - Doors Go Up! Ft. Trippie Redd.mp3', '/audio/ - Rich The Kid, Quavo & TakeOff - Too Blessed.mp3', '/audio/ -Carnage ft. Tyga, OhGeesy & Takeoff - Hella Neck.mp3', '/audio/- Future ft. Young Thug & Quavo - Upscale.mp3', '/audio/- Lil Tjay - Beat The Odds.mp3', '/audio/- Offset - Cinco De Mayo Feat. Young Nudy.mp3', '/audio/- Quavo x Evander Griiim - Baile.mp3', '/audio/- Tee Grizzley - Pray For The Drip ft. Offset.mp3', '/audio/-Young Thug - The London (ft. J. Cole & Travis Scott).mp3']
 
-let audio_cover = ['/cover/20210402_183558.jpg', '/cover/Migos-Hot-Summer-Prod.-DJ-Durel.jpg', '/cover/Future-Mask-Off.jpg', '/cover/usain_boo.jpg', '/cover/Lil_Yachty_–_Lil_Boat_2.png', '/cover/cry_baby.jpeg', '/cover/migos_tshirt.jpg', '/cover/nav_myselft.png', '/cover/migos_hotel_lobby.jpg', '/cover/lost_it.png', '/cover/step_one.jpeg', '/cover/beatbox.jpeg', '/cover/quality_vol2.jpg', '/cover/thelastrocket.jpg', '/cover/murder_on_my_mind.jpg', '/cover/magic_city.png', '/cover/culture_2.jpg','/cover/quality_vol1.png', '/cover/rocc_climbing.jpeg', '/cover/crypto.jpeg']
+let audio_cover = ['/cover/20210402_183558.jpg', '/cover/Migos-Hot-Summer-Prod.-DJ-Durel.jpg', '/cover/Future-Mask-Off.jpg', '/cover/usain_boo.jpg', '/cover/Lil_Yachty_–_Lil_Boat_2.png', '/cover/cry_baby.jpeg', '/cover/migos_tshirt.jpg', '/cover/nav_myselft.png', '/cover/migos_hotel_lobby.jpg', '/cover/lost_it.png', '/cover/step_one.jpeg', '/cover/beatbox.jpeg', '/cover/quality_vol2.jpg', '/cover/thelastrocket.jpg', '/cover/murder_on_my_mind.jpg', '/cover/magic_city.png', '/cover/culture_2.jpg','/cover/quality_vol1.png', '/cover/rocc_climbing.jpeg', '/cover/crypto.jpeg','/cover/no stylist.png', '/cover/Quove.jpg', '/cover/too_blessed.jpeg', '/cover/hella_neck.jpg', '/cover/upscale.jpg', '/cover/Lil-Tjay-Beat-The-Odds.jpg', '/cover/cinco_de_mayo.png', '/cover/Quove.jpg', '/cover/pray_the_drip.jpg', '/cover/london.jpg']
 
-let audio_name = ['Fucking Up Profits', 'Hot Summer', 'Mask Off', 'Usain Boo', 'Mickey Mouse', 'Cry Baby', 'T-shirt', 'Myself', 'Hotel Lobby', 'Lost It', 'Step One', 'Beatbox', 'Stripper Bowl', 'Last Memory', 'Murder On My Mind', 'Magic City', 'Moving Too Fast', 'Too Hotty', 'Rocc Climbing', 'Crypto']
+let audio_name = ['Fucking Up Profits', 'Hot Summer', 'Mask Off', 'Usain Boo', 'Mickey Mouse', 'Cry Baby', 'T-shirt', 'Myself', 'Hotel Lobby', 'Lost It', 'Step One', 'Beatbox', 'Stripper Bowl', 'Last Memory', 'Murder On My Mind', 'Magic City', 'Moving Too Fast', 'Too Hotty', 'Rocc Climbing', 'Crypto', 'No Stylist', 'Doors go up', 'Too Blessed', 'Hella Neck', 'Upscale', 'Beat The Odds', 'Cinco De Mayo', 'Baile', 'Pray For The Drip', 'London']
 
-let audio_author = ['Migos','Migos - Dj Durel', 'Future', 'Kodak Black', 'Lil Yatchy ft Offset & Lil Baby', 'Megan Thee Stallion ft Dababy', 'Migos', 'Nav', 'Quavo & Takeoff', 'Rich The Kid ft Quavo & Offset', 'SleazyWorld Go ft Offset', 'Spotemgottem ft Pooh_Shiesty', 'Migos', 'Takeoff', 'YNW Melly', 'Fivio Foreign', 'Migos', 'Migos - Eurielle', 'Remble ft Lil Yatchy', 'Rich The Kid ft Takeoff ']
+let audio_author = ['Migos','Migos - Dj Durel', 'Future', 'Kodak Black', 'Lil Yatchy ft Offset & Lil Baby', 'Megan Thee Stallion ft Dababy', 'Migos', 'Nav', 'Quavo & Takeoff', 'Rich The Kid ft Quavo & Offset', 'SleazyWorld Go ft Offset', 'Spotemgottem ft Pooh_Shiesty', 'Migos', 'Takeoff', 'YNW Melly', 'Fivio Foreign', 'Migos', 'Migos - Eurielle', 'Remble ft Lil Yatchy', 'Rich The Kid ft Takeoff', 'French Montana ft Drake', 'Quavo ft Trippie Redd', 'Rich The Kid ft Quavo & Takeoff', 'Carnage ft Tyga, Takeoff & OhGeesy', 'Future ft Young Thug & Quavo', 'Lil Tjay', 'Offset ft Young Nudy', 'Quavo ft Evander Griiime', 'Tee Grizzley ft Offset', 'Young Thug ft J. Cole & Travis Scott' ]
+
 
 const audio_src = 
 document.getElementById('audio_src')
@@ -31,6 +32,7 @@ let loop_btn = document.querySelector('#loop_song')
 var toogle_container = document.getElementById('toggle_container')
 var container = document.querySelector('.container')
 let i = 0
+var img_background = document.getElementById('img_background')
 audio_src.loop = false
 document.getElementById('total_song').innerHTML = audios.length 
 var music_cover = document.getElementById('logo')
@@ -57,6 +59,7 @@ audio_src.addEventListener('timeupdate',function (){
   audio_length.value = Math.floor(audio_src.currentTime )
   audio_length.max = Math.floor(audio_src.duration)
 })
+
 
 audio_src.addEventListener('ended', function() {
   if (i < audios.length - 1 || i < audio_name.length - 1 || i < audio_author.length - 1) {
@@ -110,6 +113,7 @@ function nextbtn()
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
      music_cover.setAttribute('href', audio_cover[i])
+     img_background.setAttribute('src', audio_cover[i])
      console.log(music_cover)
     audio_img.setAttribute('src', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
@@ -117,7 +121,7 @@ function nextbtn()
   } 
   else {
     i = 0
-    document.getElementById('current_song').innerHTML ='2' + i +'/'
+    document.getElementById('current_song').innerHTML = i +'/'
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
      music_cover.setAttribute('href', audio_cover[i])
@@ -127,9 +131,6 @@ function nextbtn()
   } 
   
 }
-
-
-
 
 
 
