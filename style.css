@@ -11,12 +11,15 @@ body {
     font-size: 15pt;
     transition:all .2s ease-in-out;
     min-height:100vh;
+    max-width:600px ;
     background: #1A1A1A ;
+    margin:auto auto auto auto;
 }
 .expand_cover
 {
   position:fixed;
   width:100%;
+  max-width:600px;
   min-height:100vh;
   z-index:0;
   top: 0 ;
@@ -136,6 +139,7 @@ body {
   position:relative;
   background:#1A1A1A;
   width:100%;
+  max-width:600px;
   height:100vh;
   display:flex;
   flex-direction:column;
@@ -150,12 +154,13 @@ body {
   display:flex;
   height:100px;
   width:95%;
+  max-width:600px;
   right:10px;
   border-radius:10px ;
   justify-content:center ;
   align-items:center ;
   position:fixed;
-  bottom:5px ;
+  bottom:10px ;
   transition:100ms ease-in ;
   background: #1A1A1A;
   box-shadow:0 0 5px #333 ;
@@ -168,21 +173,19 @@ body {
   width:40%;
   height:100%;
   position: absolute ;
-  left:0;
+  left: 0 ;
   padding:5px ;
 }
 .container.active .img_container img 
 {
   width:100%;
   height: 100%;
-  padding:10px ;
   object-fit:cover ;
- border-radius:10px ;
 }
 .container.active .credit
 {
-  position:absolute;
-  left: 110px;
+  position:relative;
+  left: 11px;
   top: 5px;
   text-align:center;
   width:250px;
@@ -192,6 +195,7 @@ body {
   display:flex ;
   justify-content:center ;
   align-items:center ;
+  z-index:10 ;
 }
 
 .container.active .credit p 
@@ -202,11 +206,14 @@ body {
 
 .container.active .credit input
 {
-  width: 80%;
+  width: 90%;
   height:2px;
-  top: 80px;
-  position :absolute ;
+  top: 30px;
+  left: 55px ;
+  position :relative ;
+  z-index:20;
 }
+
 
 .container.active .btns 
 {
