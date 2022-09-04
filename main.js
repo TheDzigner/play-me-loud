@@ -113,8 +113,6 @@ function nextbtn()
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
      music_cover.setAttribute('href', audio_cover[i])
-     img_background.setAttribute('src', audio_cover[i])
-     console.log(music_cover)
     audio_img.setAttribute('src', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
