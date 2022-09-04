@@ -34,10 +34,21 @@ body {
 
 .expand_cover  img 
 {
-  width:40%;
+  width:18%;
   object-fit: cover;
+  padding:5px ;
+  display:block ;
+  position:relative ;
+  animation: anim_logo  1s 200ms alternate infinite;
 }
-
+@keyframes anim_logo
+{
+  100%{
+      transform:rotate(180deg);
+      
+  } 
+ 
+}
 .expand_cover  h4 
 {
   font-size:.7em ;
