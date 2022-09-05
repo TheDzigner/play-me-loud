@@ -85,7 +85,7 @@ open_share_container.addEventListener('click',function(){
 
 get_apk.addEventListener('click',function(){
   if (confirm('Download Apk?')) {
-    window.open('')
+     window.open('https://www.webintoapp.com/store/69868')
   } 
 })
 
