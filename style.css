@@ -1,4 +1,12 @@
+@font-face {
+  font-family: newFont;
+  src: url("/font_family/Quicksand-VariableFont_wght.ttf");
+}
 
+@font-face{
+  font-family: Abel-Regular;
+  src: url("/font_family/Abel-Regular.ttf")
+}
 *
 {
   padding :0;
@@ -134,13 +142,15 @@ body
 .audio_name_container h5
 {
    color:#f1354d;
-   font-weight:800;
+   font-weight:900;
+   font-family: newFont ;
 }
 
 .audio_name_container p 
   {
     color: whitesmoke;
     font-weight:300 ;
+    font-family: Abel-Regular;
     font-size:.7em;
   }
 .btn_container 
@@ -232,4 +242,138 @@ body
 .pagination  button .playlist_play
 {
   font-size:2.5em;
+}
+
+
+.playlist 
+{
+  width: 100%;
+  max-height:220px;
+  position:fixed;
+  background:#1A1A1A ;
+  bottom:60px;
+  display:flex ;
+  flex-direction:column ;
+  justify-content:center;
+  align-items:center;
+  text-align:left ;
+  overflow:hidden ;
+  height:0;
+  border-radius:10px 10px 0 0;
+  -webkit-box-shadow: -1px 1px 6px -1px rgba(255,255,255,0.22); 
+box-shadow: -1px 1px 6px -1px rgba(255,255,255,0.22);
+transition : height  300ms  ease-in;
+transition-timing-function: cubic-bezier(.58,-0.36,.88,.72);
+}
+
+.playlist.active 
+{
+  height:210px;
+  transition : height  300ms  ease-out;
+transition-timing-function: cubic-bezier(.58,-0.36,.88,.72);
+}
+.playlist .playlist_head
+{
+  width:100%;
+  padding:10px ;
+  border-bottom: 1px inset transparent;
+  border-radius:10px 10px 0 0;
+  color:ghostwhite ;
+  margin-top: 10px ;
+  font-family: newFont ;
+  box-shadow: 8px 10px 19px -7px rgba(236,232,232,0.22);
+-webkit-box-shadow: 8px 10px 19px -7px rgba(236,232,232,0.22);
+-moz-box-shadow: 8px 10px 19px -7px rgba(236,232,232,0.22);
+}
+
+.playlist_link
+{
+  display:flex ;
+  flex-direction:column ;
+  justify-content:flex-start ;
+  align-items:center ;
+  width:100%;
+  min-height:80%;
+  overflow:hidden ;
+  overflow-y: auto ;
+  text-align:left ;
+  margin-right: auto ;
+}
+.playlist_link  .link 
+{
+  margin:8px ;
+  margin-right: auto ;
+  border-bottom:1px solid darkgray;
+  width:95%;
+  padding:5px 5px;
+    font-family: Abel-Regular;
+ 
+}
+
+.playlist_link  .link a 
+{
+  display: block ;
+  text-align:left ;
+  text-decoration:none ;
+  font-size:.6em;
+  width:100%;
+  color: whitesmoke;
+  font-weight :900 ;
+}
+
+.playlist_link .link p 
+{
+  font-size:.4em ;
+  color: ghostwhite ;
+  font-weight:400;
+}
+
+.share 
+{
+ 
+  width: 100%;
+  max-height:220px;
+  position:fixed;
+  background:#1A1A1A ;
+  bottom:60px;
+  display:flex ;
+  justify-content:center;
+  align-items:center;
+  text-align:left ;
+  overflow:hidden ;
+  height:0;
+  border-radius:10px 10px 0 0;
+  -webkit-box-shadow: -1px 1px 6px -1px rgba(255,255,255,0.22); 
+box-shadow: -1px 1px 6px -1px rgba(255,255,255,0.22);
+transition : height  300ms  ease-in;
+transition-timing-function: cubic-bezier(.58,-0.36,.88,.72);
+}
+
+.share.active 
+{
+  height:75px;
+  transition : height  300ms  ease-in;
+transition-timing-function: cubic-bezier(.58,-0.36,.88,.72);
+}
+
+.share input 
+{
+  
+  opacity: 0 ;
+}
+
+.share button 
+{
+  display: block ;
+  width:170px;
+  height:40px;
+  margin-bottom:20px;
+  padding:10px 32px ;
+  outline:none ;
+  font-weight: 200;
+  background:white ;
+  border:1px solid ghostwhite ;
+  font-family: Abel-Regular ;
+  transition:.2s ease-in-out ;
+  text-transform:capitalize ;
 }
