@@ -1,151 +1,106 @@
 <!DOCTYPE html>
-<html lang="en" class="notranslate" translate="no" >
+<html lang="en-Us"  class="notranslate"  notranslate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="google" content="notranslate">
   <link rel="shortcut icon" type="image/x-icon" href="/logo/sound.png" id="logo">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css ">
-  <title>
-    Play it loud | Main Playlist
-</title>
-  
-  <!-- HTML -->
-  
-
-  <!-- Custom Styles -->
+   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>Play Me Loud</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+   <script src="main.js" defer></script>
 </head>
 
 <body>
-  <!-- Project -->
-    
-  </style>
-     <span class="material-icons nav_bar" id="dots_menu">
-      more_vert
-      </span>
-      
-      <div class="expand_cover">
-        <img src="/logo/sound.png" alt="">
-        <h4>Play It Loud</h4>
-      </div>
-      
-      <div class="menu_container">
-        <span class="material-icons close_menu">
-          chevron_right
-        </span>
-         <div class="content">
-           <a href="index.html">
-             Main playlist
-           </a>
-           <span>
-          Playlist
-           </span>
-         </div>
-        
-        <div class="content">
-      <a href="culture_1.html" target="_parent">
-        Culture 1 - Migos
-       </a> 
-      <span>
-        album
-      </span>
-        </div>
-        
-        
-        <div class="content">
-         <a href="culture_2.html" target="_parent">
-           Culture 2 - Migos
-         </a> 
-         <span>
-           album
-         </span>
-        </div>
-        
-        
-        
-        <div class="content">
-         <a href="culture_3.html" target="_parent">
-           Culture 3 - Migos
-         </a> 
-         <span>
-           album
-         </span>
-        </div>
-        
-   <div class="content">
-     <a href="huncho_jack.html">
-        Huncho Jack / Travis Scott & Quavo 
-       </a> 
-       <span>
-        album
-         </span>
-        </div>
-        
-            
-   <div class="content">
-     <a href="drillz.html">
-       Drillz
-       </a> 
-       <span>
-        Playlist
-         </span>
-        </div>
-        
-        
-      </div>
-      
-      
-  <div class="container">
-    <span class="material-icons arrow_down" id="toggle_container">
-      expand_more
-    </span>
-    
-    
-    <div class="img_container">
-      <img src="" alt="" id="audio_img">
-      <span class="material-icons" id="loop_song">
-               repeat_one
-            </span>
-     <div class='inner_length'>
-       <p id="current_song"></p>
-       <p id="total_song"></p>
+
+
+
+<div class="main">
+  
+<div class="cover_container">
+  <!--<span translate="no" class="material-icons-round expand_more">
+        expand_more
+     </span>-->
+     <div class="img_container">
+       <img  src=""  id="audio_img">
      </div>
-    </div>
-    
-    
-    
-   <div class="credit">
-   <input type="range"  id="range" value="0" />
-      <p id="audio_name">
-      </p>
-      <p id="audio_author">
-      </p> 
-   </div>
-      <div class="btns">
-      <button id="prevbtn">
-        <span class="material-icons ">
-         skip_previous
-         </span>
-      </button>
-      
-      
-      <button id="playbtn">
-     <i class="fa fa-play"> </i>
-      </button>
-      
-      
-      <button id="nextbtn">
-        <span class="material-icons">
-          skip_next
+     <div class="progress_bar">
+       <span notranslate="no"   class="material-icons-round repeat_one" id="loop_song">
+       repeat_one
         </span>
-      </button>
-      </div>
-      <audio src="" id="audio_src"></audio>
+         <input type="range" name="" id="range" value="0">
+        <span id="length" class="audio_length">3/3</span>
+     </div>
+     <div class="audio_name_container">
+       <h5 id="audio_author"></h5>
+       <p id="audio_name"></p>
+     </div>
+     
+     
+   <div class="btn_container">
+     <div class="btns">
+       <button class="prev " id="prevbtn">
+         <span  notranslate="no"  class="material-icons-round">
+           fast_rewind
+         </span>
+       </button>
+       <button class="play " id="playbtn">
+         <span  notranslate="no" class="material-icons-round ">
+            play_arrow 
+         </span>
+       </button>
+       <button class="next  " id="nextbtn">
+         <span  notranslate="no" class="material-icons-round">
+          fast_forward
+         </span>
+       </button>
+     </div>
+     
+     <div class="volume_container">
+       <span  notranslate="no" class="material-icons-round">
+        volume_mute
+       </span>
+       <input type="range" name="" id="audio_volume" value="50" min="1" max="100"/>
+       <span class="material-icons-round">
+       volume_up
+       </span>
+     </div>
+   </div>
+   
+   
+    <audio src="" id="audio_src"></audio>
+   </div>
+
+   
+  <div class="pagination">
+  <button>
+   <span  notranslate="no"  class="material-icons-round">
+     get_app
+    </span> 
+  </button>
+  <button>
+    <span  notranslate="no" class="material-icons-round">
+       ios_share
+    </span> 
+  </button>
+  <button>
+    <span notranslate="no" class="material-icons-round playlist_play">
+      playlist_play
+    </span> 
+  </button>
   </div>
-  <script src="main.js"></script>
+   </div>
+
+
+
+
+
+
+
+
+<script src="main.js"></script>
 </body>
+
 </html>
