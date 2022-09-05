@@ -56,7 +56,54 @@ var get_audio_length = document.getElementById('length')
 // volume up / down 
 var Input_volume = document.getElementById('audio_volume')
 
+//open Playlist container 
+var open_playlist_container = document.getElementById('open_playlist_container')
 
+//playlist container
+var playlist_container = document.querySelector('.playlist')
+
+//button download apk 
+var get_apk = document.getElementById('get_apk')
+
+//get share container 
+var share_container = document.querySelector('.share')
+
+//get the button to copy web url 
+var copy_web_url = document.getElementById('copy_url')
+
+//get the button to open shsre container 
+var open_share_container = document.getElementById ('open_share_container')
+
+
+open_playlist_container.addEventListener('click', function(){
+  playlist_container.classList.toggle('active')
+  share_container.classList.remove('active')
+})
+
+open_share_container.addEventListener('click',function(){
+  share_container.classList.toggle('active')
+  playlist_container.classList.remove('active')
+})
+
+get_apk.addEventListener('click',function(){
+  if (confirm('Download Apk?')) {
+    window.open('')
+  } 
+})
+
+copy_web_url.addEventListener('click',(e)=>{
+    //get the input to copy the url 
+var input_url = document.getElementById('Input_url')
+input_url.value = location.href;
+input_url.style.pointerEvents='none'
+    e.preventDefault()
+    input_url.select()
+    document.execCommand('copy')
+    copy_web_url.textContent = 'Url Copied!'
+    setTimeout(function(){
+      copy_web_url.textContent = 'Share With Friends!'
+    },1000)
+  }) 
 
 
 //audio progress bar / current time
