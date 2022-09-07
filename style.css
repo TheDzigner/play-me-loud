@@ -128,7 +128,7 @@ body
 
 .audio_name_container 
 {
-  width:98%;
+  width:80%;
   text-align:center ;
   margin:5px auto 0 ;
 }
@@ -144,6 +144,7 @@ body
    color:#f1354d;
    font-weight:900;
    font-family: newFont ;
+   font-size:.6em;
 }
 
 .audio_name_container p 
@@ -151,7 +152,7 @@ body
     color: whitesmoke;
     font-weight:300 ;
     font-family: Abel-Regular;
-    font-size:.7em;
+    font-size:.6em;
   }
 .btn_container 
 {
