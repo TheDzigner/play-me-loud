@@ -94,7 +94,7 @@ get_apk.addEventListener('click',function(){
 copy_web_url.addEventListener('click',(e)=>{
     //get the input to copy the url 
 var input_url = document.getElementById('Input_url')
-input_url.value = 'Hey im listening to' + ' ' + audio_name[i] +' ' + 'by' + ' ' +  audio_author[i] + ' ' + location.href;
+input_url.value = 'Hey im listening to' + ' ' + audio_name[i] +' ' + 'by' + ' ' +  audio_author[i] + ' ' + location.href + audios[i];
 input_url.style.pointerEvents='none'
     e.preventDefault()
     input_url.select()
