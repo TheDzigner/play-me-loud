@@ -86,7 +86,7 @@ open_share_container.addEventListener('click',function(){
 })
 
 get_apk.addEventListener('click',function(){
-  if (confirm('Download Apk?')) {
+  if (confirm('Would you like download the Apk?')) {
     window.open('https://www.webintoapp.com/store/69868')
   } 
 })
@@ -94,7 +94,7 @@ get_apk.addEventListener('click',function(){
 copy_web_url.addEventListener('click',(e)=>{
     //get the input to copy the url 
 var input_url = document.getElementById('Input_url')
-input_url.value = location.href;
+input_url.value = 'Hey im listening to' + ' ' + audio_name[i] +' ' + 'by' + ' ' +  audio_author[i] + ' ' + location.href;
 input_url.style.pointerEvents='none'
     e.preventDefault()
     input_url.select()
