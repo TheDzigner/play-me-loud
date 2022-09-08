@@ -89,20 +89,19 @@ get_apk.addEventListener('click',function(){
   } 
 })
 
-copy_web_url.addEventListener('click',(e)=>{
-    //get the input to copy the url 
-var input_url = document.getElementById('Input_url')
-input_url.value = location.href;
-input_url.style.pointerEvents='none'
-    e.preventDefault()
-    input_url.select()
-    document.execCommand('copy')
-    copy_web_url.textContent = 'Url Copied!'
-    setTimeout(function(){
-      copy_web_url.textContent = 'Share With Friends!'
-    },1000)
-  }) 
-
+copy_web_url.addEventListener('click', (e) => {
+  //get the input to copy the url 
+  var input_url = document.getElementById('Input_url')
+  input_url.value = 'Hey im listening to' + ' ' + `${audio_name[i]}` + ' ' + 'by' + ' ' + audio_author[i] + ' ' + 'at the number range of' + ' ' + i + '/' + audios.length + ' ' + location.href;
+  input_url.style.pointerEvents = 'none'
+  e.preventDefault()
+  input_url.select()
+  document.execCommand('copy')
+  copy_web_url.textContent = 'Url Copied!'
+  setTimeout(function() {
+    copy_web_url.textContent = 'Share With Friends!'
+  }, 1000)
+})
 
 //audio progress bar / current time
 audio_length.addEventListener('input',function(){
