@@ -4,7 +4,7 @@ let audio_cover = ['/logo/sound.png', '/logo/sound.png', '/logo/sound.png', '/lo
 
 let audio_name = ['Peace of mind', 'Loading', 'Turbo Fast', 'Plugged In', 'Day in life', 'Loading', 'Bad guy', 'Destination', 'Voice of the Truth 2', 'Freestyle', 'NHS', 'Polémique', 'Fake Love', 'Mskum', 'One Wish']
 
-let audio_author = ['Pat Saraby', 'Skizz', 'A$H 96','Fumez the engineer', 'Central Cee', 'Central Cee', 'Drillas Big Cee', 'RG x Britz', 'Birmingham', 'Arrdee', 'Bm x Mini x Sava', 'Freeze Corleone ft Central Cee', 'Poundz', 'Skengdo x Am x Lil Rass x Bm x Mini x Rack5 x TY', 'PR SAD']
+let audio_author = ['Pat Saraby', 'Skizz', 'A$H 96','Fumez the engineer', 'Central Cee', 'Central Cee', 'Drillas Big Cee', 'RG x Britz', 'Birmingham', 'Arrdee', 'Bm x Mini x Sava', 'Freeze Corleone ft Central Cee', 'Poundz', 'Skengdo x Am x Lil Rass x Bm', 'PR SAD']
 
 // get the audio src frm the Dom
 const audio_src = document.getElementById('audio_src')
@@ -89,7 +89,7 @@ get_apk.addEventListener('click',function(){
 copy_web_url.addEventListener('click',(e)=>{
     //get the input to copy the url 
 var input_url = document.getElementById('Input_url')
-input_url.value = location.href;
+input_url.value = 'Hey im listening to' + ' ' + `${audio_name[i]}`+' ' + 'by' + ' ' +  audio_author[i] + ' ' + 'at the number range of'+ ' '+ i + '/' + audios.length + ' ' + location.href ;
 input_url.style.pointerEvents='none'
     e.preventDefault()
     input_url.select()
@@ -99,8 +99,6 @@ input_url.style.pointerEvents='none'
       copy_web_url.textContent = 'Share With Friends!'
     },1000)
   }) 
-
-
 //audio progress bar / current time
 audio_length.addEventListener('input',function(){
   audio_src.currentTime = audio_length.value 
