@@ -25,7 +25,91 @@ body
   transition:all .2s  ease-in-out ;
   background:#1A1A1A;
 }
+.home_screen
+ {
+   position:fixed;
+   width:100%;
+   height:100vh;
+   min-height:100vh;
+   top:0;
+   left:0 ;
+   right:0;
+   bottom:0;
+   display:flex;
+   flex-direction:column;
+   justify-content: center ;
+   align-items:center;
+   background:#24293E;
+   text-align:center ;
+   z-index:1000;
+   transition: .3s ease-out ;
+   transition-timing-function: cubic-bezier(.58,-0.36,.88,.72) ;
+ }
+ 
+.home_screen.active
+{
+ transition:.3s ease-in ;
+ transform: translateY(-200%);
+}
 
+.logo_container 
+{
+  width:80%;
+  max-width:80%;
+  text-align:center ;
+  
+}
+
+.logo_container  img 
+{
+  width:25%;
+  object-fit:cover ;
+  padding:5px;
+}
+.logo_container h5 
+{
+  font-size:1.2em ;
+  letter-spacing:2px;
+  color:ghostwhite ;
+  padding:5px ;
+  font-family: newFont;
+  font-weight:800 ;
+}
+
+.logo_container span 
+{
+  font-size:.6em;
+  display:block ;
+  font-weight:300;
+  letter-spacing:3px;
+  color:white ;
+  font-family: Abel-Regular;
+}
+
+.home_screen button 
+{
+ display:block ;
+ padding:10px 30px;
+ margin-top:70px;
+ outline:none ;
+ background:whitesmoke;
+ color:black ;
+ border:1px solid ghostwhite ;
+ font-size:.8em ;
+ font-family: Abel-Regular;
+ border-radius:10px ;
+}
+
+.home_screen a 
+{
+  display: block ;
+  text-decoration: none ;
+  outline:none ;
+  color:white ;
+  font-size:.6em;
+  margin-top:100px ;
+  font-family: Abel-Regular;
+}
 .main 
 {
   width:100%;
@@ -72,6 +156,10 @@ body
   padding:20px;
   display:block ;
 }
+
+
+
+
 
 .progress_bar 
 {
@@ -180,8 +268,6 @@ body
   display:inline-flex ;
   font-size:2em ;
 }
-
-
 
 
 .volume_container 

@@ -74,6 +74,20 @@ var copy_web_url = document.getElementById('copy_url')
 //get the button to open shsre container 
 var open_share_container = document.getElementById ('open_share_container')
 
+  var HideHomeScreenBtn = document.getElementById('hide_home_screen')
+  var Home_Screen = document.querySelector('.home_screen')
+  
+  HideHomeScreenBtn.addEventListener('click',function(){
+      if(window.navigator.onLine){
+      Home_Screen.classList.add('active')
+      }else {
+        HideHomeScreenBtn.innerText = "You're Offline"
+      }
+  })
+  window.addEventListener('online',function(){
+    Home_Screen.classList.add('active')
+    HideHomeScreenBtn.innerText = "You're Offline"
+  })
 
 open_playlist_container.addEventListener('click', function(){
   playlist_container.classList.toggle('active')
@@ -86,7 +100,7 @@ open_share_container.addEventListener('click',function(){
 })
 
 get_apk.addEventListener('click',function(){
-  if (confirm('Would you like download the Apk?')) {
+  if (confirm('Would you like to download the Apk?')) {
     window.open('https://www.webintoapp.com/store/69868')
   } 
 })
@@ -94,7 +108,7 @@ get_apk.addEventListener('click',function(){
 copy_web_url.addEventListener('click',(e)=>{
     //get the input to copy the url 
 var input_url = document.getElementById('Input_url')
-input_url.value = 'Hey im listening to' + ' ' + audio_name[i] +' ' + 'by' + ' ' +  audio_author[i] + ' ' + 'at the number range of'+ ' '+ i + '/' + audios.length + ' ' + location.href ;
+input_url.value = 'Hey im listening to' + ' ' + `${audio_name[i]}`+' ' + 'by' + ' ' +  audio_author[i] + ' ' + 'at the number range of'+ ' '+ i + '/' + audios.length + ' ' + location.href + audio_src;
 input_url.style.pointerEvents='none'
     e.preventDefault()
     input_url.select()
@@ -104,6 +118,8 @@ input_url.style.pointerEvents='none'
       copy_web_url.textContent = 'Share With Friends!'
     },1000)
   }) 
+
+
 
 
 //audio progress bar / current time
@@ -127,6 +143,7 @@ audio_src.addEventListener('ended', function() {
     playIcone.textContent = 'pause_arrow'
     //set a attribute for the current audio path
     audio_src.setAttribute('src', audios[i])
+    console.log(audio_src.result)
     //play it automatically 
     audio_src.play()
     //set the current cover
@@ -143,9 +160,12 @@ audio_src.addEventListener('ended', function() {
     audio_src.play()
    audio_img.setAttribute('src', audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
-    document.getElementById('audio_author').innerHTML = audio_author[i]
   }
 })  
+
+
+
+
 
 
 //function to play the audio 
@@ -176,7 +196,7 @@ loop_btn.addEventListener('click', function(){
 
  //volume enter, volume up / down 
 Input_volume.addEventListener('input',function(){
-  audio_src.volume = this.value / 100
+  audio_src.volume = this.value /100
 })
 
 //play the next audio
@@ -189,13 +209,13 @@ function nextbtn()
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
      music_cover.setAttribute('href', audio_cover[i])
-    audio_img.setAttribute('src', audio_cover[i])
+    audio_img.setAttribute('src',audio_cover[i])
     document.getElementById('audio_name').innerHTML = audio_name[i]
     document.getElementById('audio_author').innerHTML = audio_author[i]
   } 
   else {
     i = 0
-    get_audio_length.innerHTML = i + '/' + audios.length
+    get_audio_length.innerHTML = i +  '/' + audios.length
     audio_src.setAttribute('src', audios[i])
      audio_src.play()
      music_cover.setAttribute('href', audio_cover[i])
