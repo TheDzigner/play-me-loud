@@ -1,159 +1,240 @@
 <!DOCTYPE html>
-<html lang="en-Us"  class="notranslate"  notranslate="no">
+<html notranslate="true">
+<head>
+  <html lang="en-Us"  class="notranslate"  notranslate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="google" content="notranslate">
   <link rel="shortcut icon" type="image/x-icon" href="/cover/playmeloudCover.png " id="logo">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Find free audio Playlist and Album, share with friends, play in the browser or download the Apk">
+  <meta name="description" content="Play free online music">
   <meta name="author" content="TheDzigner">
    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <title>Play Me Loud</title>
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer ></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
    
-   <script src="main.js" defer></script>
 </head>
 
 <body>
 
-
-
-<div class="home_screen">
-  <div class="logo_container">
-    <img src="/logo/sound.png" alt="play me loud logo">
-    <h5>Play Me Loud</h5>
-   <span>Free Online Music</span>
+<header>
+  <div class="app_icon">
+   <img src="/logo/sound.png" alt="">
+    <input type="text" value="" maxlength="10"  id="username">
   </div>
-  <button id="hide_home_screen">Start Playing</button>
-  <a href="mailto:thedzignerweb@gmail.com" >Send me a Mail</a>
-</div>
-
-
-<div class="main">
-                                                                    
-  
-<div class="cover_container">
-  <!--<span translate="no" class="material-icons-round expand_more">
-        expand_more
-     </span>-->
-     <div class="img_container">
-       <img  src=""  id="audio_img">
-     </div>
-     <div class="progress_bar">
-       <span notranslate="no"   class="material-icons-round repeat_one" id="loop_song">
-       repeat_one
-        </span>
-         <input type="range" name="" id="range" value="0">
-        <span id="length" class="audio_length">3/3</span>
-     </div>
-     <div class="audio_name_container">
-       <h5 id="audio_author"></h5>
-       <p id="audio_name"></p>
-     </div>
-     
-     
-   <div class="btn_container">
-     <div class="btns">
-       <button class="prev " id="prevbtn">
-         <span  notranslate="no"  class="material-icons-round">
-           fast_rewind
-         </span>
-       </button>
-       <button class="play " id="playbtn">
-         <span  notranslate="no" class="material-icons-round play_icon ">
-            play_arrow 
-         </span>
-       </button>
-       <button class="next  " id="nextbtn">
-         <span  notranslate="no" class="material-icons-round">
-          fast_forward
-         </span>
-       </button>
-     </div>
-     
-     <div class="volume_container">
-       <span  notranslate="no" class="material-icons-round">
-        volume_mute
-       </span>
-       <input type="range" name="" id="audio_volume" value="50" min="1" max="100"/>
-       <span class="material-icons-round">
-       volume_up
-       </span>
-     </div>
-   </div>
-   
-   
-    <audio src="" id="audio_src"></audio>
-   </div>
-
-   
-  <div class="pagination">
-  <button id="get_apk">
-   <span  notranslate="no"  class="material-icons-round">
-     get_app
-    </span> 
+  <button class="material-icons-round">
+    settings 
   </button>
-  <button id="open_share_container">
-    <span  notranslate="no" class="material-icons-round">
-       ios_share
-    </span> 
-  </button>
-  <button id="open_playlist_container">
-    <span notranslate="no" class="material-icons-round playlist_play">
-      playlist_play
-    </span> 
-  </button>
-  </div>
-   </div>
-   
+</header>
 
-<div class="playlist">
-  <div class="playlist_head">
-    <h5>Album & Playlist</h5>
-  </div>
-  <div class="playlist_link">
-    <div class="link">
-      <a href="culture_1.html">
-        Migos - Culture 1
-      </a>
-      <p>Album</p>
-    </div>
-     <div class="link">
-      <a href="culture_2.html">
-        Migos - Culture 2
-      </a>
-      <p>Album</p>
+
+<div class="main"> 
+<div class="recommended_playlist_container">
+  <h4>Recommended Playlist 🔥</h4>
+  <div class="recommended_playlist_wrapper">
+    
+    <div class="recommended_playlist">
+      <img src="" alt="" id="playlist_one_cover">
+      <div class="recommended_playlist_artist">
+        <p>Offset, Quavo, Takeoff, Trippie Redd, Travis Scott, Spotemgottem, Lil Baby, Megan Thee Stallion...</p>
+        <button class="material-icons-round" id="playlist_one_btn">
+          play_arrow 
+        </button>
+      <audio src="" id=""></audio>
+      </div>
     </div>
     
-        <div class="link">
-          <a href="culture_3.html">
-            Migos - Culture 3
-          </a>
-          <p>Album</p>
-        </div>
-        
-        <div class="link">
-          <a href="huncho_jack.html">
-            Travis Scott & Quavo - Huncho Jack, Jack Huncho 
-          </a>
-          <p>Album</p>
-        </div>
-        
-        <div class="link">
-         <a href="drillz.html">
-          Drillz
-           </a>
-         <p>Playlist</p>
-         </div>
+    <div class="recommended_playlist">
+      <img src="/cover/playmeloudCover.png" alt="">
+      <div class="recommended_playlist_artist">
+         <p>No audio has been added yet :/</p>
+        <button class="material-icons-round" id="">
+          play_arrow 
+        </button>
+      <audio src="" id=""></audio>
+      </div>
+    </div>
+    
+    
+    <div class="recommended_playlist">
+      <img src="/cover/playmeloudCover.png" alt="">
+      <div class="recommended_playlist_artist">
+       <p>No audio has been added yet :/</p>
+        <button class="material-icons-round" id="">
+          play_arrow 
+        </button>
+      <audio src="" id=""></audio>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="share">
-  <div class="share_link">
-    <input type="text" name="" id="Input_url" value="" readonly />
-    <button id="copy_url">Share with Friends</button>
+ 
+ 
+
+
+
+
+
+
+
+
+<div class="recommended_album_container">
+  <h4>Recommended Albums 🔥</h4>
+  <div class="recommended_album_wrapper">
+    
+    <div class="recommended_album">
+      <img src="/cover/megan_traumazine.jpg" alt="">
+      <div class="recommended_album_artist">
+        <p>Megan Thee Stallion / Traumazine</p>
+        <button class="material-icons-round" id="">
+          play_arrow 
+        </button>
+      <audio src="" id=""></audio>
+      </div>
+    </div>
+        <div class="recommended_album">
+          <img src="/cover/Nav_newAlbum.jpg" alt="">
+          <div class="recommended_album_artist">
+            <p>Nav / Demons Protected by Angels</p>
+            <button class="material-icons-round" id="">
+              play_arrow
+            </button>
+            <audio src="" id=""></audio>
+          </div>
+        </div>
+    
+    
+     <div class="recommended_album">
+          <img src="/cover/party_all.jpeg" alt="">
+          <div class="recommended_album_artist">
+            <p> Dj Khaled / God Did </p>
+            <button class="material-icons-round" id="">
+              play_arrow
+            </button>
+            <audio src="" id=""></audio>
+          </div>
+        </div>
+        
+         <div class="recommended_album">
+          <img src="/cover/Beyonce-Renaissance.jpg" alt="">
+          <div class="recommended_album_artist">
+            <p>Beyoncé / Renaissance</p>
+            <button class="material-icons-round" id="">
+              play_arrow
+            </button>
+            <audio src="" id=""></audio>
+          </div>
+        </div>
+        
+         <div class="recommended_album">
+          <img src="/cover/attachment-kendrick-lamar-mr-morale-hotsteppers-cover.jpg" alt="">
+          <div class="recommended_album_artist">
+            <p>Kendrick Lamar / Mr. Morale & The Big Steppers</p>
+            <button class="material-icons-round" id="">
+              play_arrow
+            </button>
+            <audio src="" id=""></audio>
+          </div>
+        </div>
+        
+  </div>
+</div>
+
+     
+     
+     
+     
+     
+     
+     
+
+
+<div class="gym_playlist_container">
+  <h4>Go get that pump in 💪</h4>
+  <div class="gym_playlist_wrapper">
+
+    <div class="gym_playlist">
+      <img src="" alt="" id="gym_playlist_1_covers">
+      <div class="gym_playlist_artist">
+        <p>Dababy, Cordea, Snot, iann Dior, Zaytoven, Young Thug, Big Sean, Lil Tecca</p>
+        <button class="material-icons-round" id="gym_playlist_one_btn">
+          play_arrow 
+        </button>
+      </div>
+    </div>
+    
+        <div class="gym_playlist">
+       <img src="/cover/playmeloudCover.png" alt="">
+      <div class="gym_playlist_artist">
+        <p>No audio has been added yet :/</p>
+        <button class="material-icons-round">
+          play_arrow 
+        </button>
+      </div>
+    </div>
+    
+        <div class="gym_playlist">
+         <img src="/cover/playmeloudCover.png" alt="">
+          <div class="gym_playlist_artist">
+            <p>No audio has been added yet :/</p>
+            <button class="material-icons-round">
+              play_arrow
+            </button>
+          </div>
+        </div>
+        
+  </div>
+</div>
+
+
+<script>
+  
+</script>
+
+
+
+
+
+<div class="recommended_partyplaylis_container">
+  <h4>Bump these at any party 🎉 </h4>
+  <div class="recommended_partyplaylist_wrapper">
+    
+    <div class="recommended_partyplaylist">
+   <img src="/cover/playmeloudCover.png" alt="">
+      <div class="recommended_partyplaylist_artist">
+         <p>No audio has been added yet :/</p>
+        <button class="material-icons-round" id="">
+          play_arrow 
+        </button>
+      <audio src="" id=""></audio>
+      </div>
+    </div>
+    
+        <div class="recommended_partyplaylist">
+       <img src="/cover/playmeloudCover.png" alt="">
+      <div class="recommended_partyplaylist_artist">
+        <p>No audio has been added yet :/</p>
+        <button class="material-icons-round" id="">
+          play_arrow 
+        </button>
+        <audio  src="" id=""></audio>
+      </div>
+    </div>
+    
+        <div class="recommended_partyplaylist">
+           <img src="/cover/playmeloudCover.png" alt="">
+          <div class="recommended_partyplaylist_artist">
+              <p>No audio has been added yet :/</p>
+            <button class="material-icons-round" id="">
+              play_arrow
+            </button>
+           <audio  src="" id=""></audio>
+          </div>
+        </div>
   </div>
 </div>
 
@@ -161,7 +242,27 @@
 
 
 
-<script src="main.js"></script>
+
+
+</div>
+
+<div class="show_playing_container">
+  <div class="show_playing_cover">
+    <img src="" id="show_playing_img">
+  </div>
+  <div class="show_playing_artist">
+    <h5></h5>
+    <p></p>
+  </div>
+ <div class="show_playing_button">
+    <button class="material-icons-round" id="play_show_audio_btn">
+    play_arrow
+  </button> 
+  <audio id="play_show_audio_src"></audio>
+ </div>
+</div>
+
+
+
 </body>
-
 </html>
