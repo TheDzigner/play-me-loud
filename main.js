@@ -19,6 +19,21 @@ let b = 0;
 let count_b = 0 
 
 
+const data = {
+  title : 'Free online music', 
+  text : 'click to play now', 
+  url : 'location.href'
+}
+
+function my_data(){
+if (navigator.canShare && navigator.canShare(data)){
+  navigator.share(data);
+}else {
+  alert('your device does not support')
+}
+}
+
+
 
 play_show_audio_btn.addEventListener('click',function(){
   if (play_show_audio_src.paused) {
@@ -30,61 +45,7 @@ play_show_audio_btn.addEventListener('click',function(){
   }
 })
 
-
-let gym_playlist_audio = [
-  {
-    audio_src : '/gym_playlist/$tupid Young ft. AD - Thats Out.mp3', 
-    audio_cover : '/gym_playlist/stupidYoung.jpg', 
-    audio_author : '$tupid Young ft AD', 
-    audio_name : 'That\'s Out '
-  }, 
-  {
-    audio_src : '/gym_playlist/Big Sean - Wolves  ft. Post Malone.mp3', 
-    audio_cover : '/gym_playlist/big sean wolves.jpg', 
-    audio_author : 'Big Sean ft Post Malone', 
-    audio_name : 'Wolves'
-  }, 
-  {
-    audio_src : '/gym_playlist/Cordea ft YoungThug.mp3', 
-    audio_cover : '/gym_playlist/cordeawassup.png', 
-    audio_author : 'Cordea ft YoungThug', 
-    audio_name : 'Wassup'
-  }, 
-  {
-    audio_src : '/gym_playlist/Dababy_roof.mp3', 
-    audio_cover : '/gym_playlist/dababyroof.jpg', 
-    audio_author : 'Dababy', 
-    audio_name : 'Roof'
-  }, 
-  {
-    audio_src : '/gym_playlist/KILLY - Eye for an Eye.mp3', 
-    audio_cover : '/gym_playlist/killy_eye.jpg', 
-    audio_author : 'Killy', 
-    audio_name : 'Eye For An Eye'
-  }, 
-  {
-    audio_src : '/gym_playlist/Lil Tecca - SEASIDE ft. Iann Dior.mp3', 
-    audio_cover : '/gym_playlist/seaside_lilTecca.png', 
-    audio_author : 'Lil Tecca ', 
-    audio_name : 'Seaside'
-  }, 
-  {
-    audio_src : '/gym_playlist/Snot ft iann Dior.mp3', 
-    audio_cover : '/gym_playlist/snot_likeme.png', 
-    audio_author : 'Snot ft Iann Dior', 
-    audio_name : 'Like Me'
-  }, 
-  {
-    audio_src : '/gym_playlist/Zaytoven & F015.mp3', 
-    audio_cover : '/gym_playlist/chasedown.jpg', 
-    audio_author : 'Zaytoven & FO15', 
-    audio_name : 'Chase Down'
-  }, 
-  
-    ]
-
-
-const playlist_one_audio = [
+let playlist_one_audio = [
    {
      audio_src : '/audio/ Migos - _Fucking Up Profits.mp3', 
      audio_cover : '/cover/20210402_183558.jpg', 
@@ -288,8 +249,63 @@ const playlist_one_audio = [
     audio_cover : '/cover/drip_hard.jpg', 
     audio_author : 'Lil Baby ft Gunna', 
     audio_name : 'Drip Too Hard'
-  }, 
+  }
   ]
+
+
+let gym_playlist_audio = [
+  {
+    audio_src : '/gym_playlist/$tupid Young ft. AD - Thats Out.mp3', 
+    audio_cover : '/gym_playlist/stupidYoung.jpg', 
+    audio_author : '$tupid Young ft AD', 
+    audio_name : 'That\'s Out '
+  }, 
+  {
+    audio_src : '/gym_playlist/Big Sean - Wolves  ft. Post Malone.mp3', 
+    audio_cover : '/gym_playlist/big sean wolves.jpg', 
+    audio_author : 'Big Sean ft Post Malone', 
+    audio_name : 'Wolves'
+  }, 
+  {
+    audio_src : '/gym_playlist/Cordea ft YoungThug.mp3', 
+    audio_cover : '/gym_playlist/cordeawassup.png', 
+    audio_author : 'Cordea ft YoungThug', 
+    audio_name : 'Wassup'
+  }, 
+  {
+    audio_src : '/gym_playlist/Dababy_roof.mp3', 
+    audio_cover : '/gym_playlist/dababyroof.jpg', 
+    audio_author : 'Dababy', 
+    audio_name : 'Roof'
+  }, 
+  {
+    audio_src : '/gym_playlist/KILLY - Eye for an Eye.mp3', 
+    audio_cover : '/gym_playlist/killy_eye.jpg', 
+    audio_author : 'Killy', 
+    audio_name : 'Eye For An Eye'
+  }, 
+  {
+    audio_src : '/gym_playlist/Lil Tecca - SEASIDE ft. Iann Dior.mp3', 
+    audio_cover : '/gym_playlist/seaside_lilTecca.png', 
+    audio_author : 'Lil Tecca ', 
+    audio_name : 'Seaside'
+  }, 
+  {
+    audio_src : '/gym_playlist/Snot ft iann Dior.mp3', 
+    audio_cover : '/gym_playlist/snot_likeme.png', 
+    audio_author : 'Snot ft Iann Dior', 
+    audio_name : 'Like Me'
+  }, 
+  {
+    audio_src : '/gym_playlist/Zaytoven & F015.mp3', 
+    audio_cover : '/gym_playlist/chasedown.jpg', 
+    audio_author : 'Zaytoven & FO15', 
+    audio_name : 'Chase Down'
+  }, 
+  
+    ]
+
+
 
 
 
@@ -316,35 +332,6 @@ const playlist_one_audio = [
   
   
    //cover playlist one
-   playlist_one_btn.addEventListener('click',function(){
-      show_playing_container.classList.remove('active')
-      setTimeout(function(){
-        show_playing_container.classList.add('active')
-      },100)
-      main_container.style.marginBottom = '100px'
-      playlist_one_btn.textContent = 'fast_forward'
-      if(a < playlist_one_audio.length - 1 ){
-         a++
-         play_show_audio_btn.textContent = 'pause_arrow'
-         gym_playlist_one_btn.textContent = 'play_arrow'
-         play_show_audio_src.setAttribute('src',playlist_one_audio[a].audio_src )
-         play_show_audio_src.play()
-         document.title = playlist_one_audio[a].audio_author + ' / ' + playlist_one_audio[a].audio_name
-         show_playing_img.src = playlist_one_audio[a].audio_cover
-        show_playing_artist_name.innerHTML = playlist_one_audio[a].audio_author
-        show_playing_title.innerHTML = playlist_one_audio[a].audio_name
-         }else {
-         a = 0
-        play_show_audio_btn.textContent = 'pause_arrow'
-        play_show_audio_src.setAttribute('src',playlist_one_audio[a].audio_src )
-         play_show_audio_src.play()
-        document.title = playlist_one_audio[a].audio_author + ' / ' + playlist_one_audio[a].audio_name
-        show_playing_img.src = playlist_one_audio[a].audio_cover
-        show_playing_artist_name.innerHTML = playlist_one_audio[a].audio_author
-        show_playing_title.innerHTML = playlist_one_audio[a].audio_name
-       }
-    })
-    
    
      function changePlalist_one_cover(){
        if(a_count < playlist_one_audio.length - 1 ){
@@ -358,8 +345,14 @@ const playlist_one_audio = [
     setInterval('changePlalist_one_cover()', delay_a)
     
     
-    
-    play_show_audio_src.addEventListener('ended',function(){
+    playlist_one_btn.addEventListener('click',function(){
+      show_playing_container.classList.remove('active')
+      setTimeout(function(){
+        show_playing_container.classList.add('active')
+      },100)
+      main_container.style.marginBottom = '100px'
+      playlist_one_btn.textContent = 'fast_forward'
+      gym_playlist_one_btn.textContent = 'play_arrow'
       if(a < playlist_one_audio.length - 1 ){
          a++
          play_show_audio_btn.textContent = 'pause_arrow'
@@ -373,13 +366,39 @@ const playlist_one_audio = [
          a = 0
         play_show_audio_btn.textContent = 'pause_arrow'
         play_show_audio_src.setAttribute('src',playlist_one_audio[a].audio_src )
-        play_show_audio_src.play()
+         play_show_audio_src.play()
         document.title = playlist_one_audio[a].audio_author + ' / ' + playlist_one_audio[a].audio_name
         show_playing_img.src = playlist_one_audio[a].audio_cover
         show_playing_artist_name.innerHTML = playlist_one_audio[a].audio_author
         show_playing_title.innerHTML = playlist_one_audio[a].audio_name
        }
+       
     })
+    
+    function audio_end(){
+      if(a < playlist_one_audio.length - 1 ){
+         a++
+         play_show_audio_btn.textContent = 'pause_arrow'
+         play_show_audio_src.setAttribute('src',playlist_one_audio[a].audio_src )
+         play_show_audio_src.play()
+         document.title = playlist_one_audio[a].audio_author + ' / ' + playlist_one_audio[a].audio_name
+         show_playing_img.src = playlist_one_audio[a].audio_cover
+        show_playing_artist_name.innerHTML = playlist_one_audio[a].audio_author
+        show_playing_title.innerHTML = playlist_one_audio[a].audio_name
+         }else {
+         a = 0
+        play_show_audio_btn.textContent = 'pause_arrow'
+        play_show_audio_src.setAttribute('src',playlist_one_audio[a].audio_src )
+         play_show_audio_src.play()
+        document.title = playlist_one_audio[a].audio_author + ' / ' + playlist_one_audio[a].audio_name
+        show_playing_img.src = playlist_one_audio[a].audio_cover
+        show_playing_artist_name.innerHTML = playlist_one_audio[a].audio_author
+        show_playing_title.innerHTML = playlist_one_audio[a].audio_name
+       }
+      
+    } 
+    play_show_audio_src.addEventListener('ended',audio_end )
+    
  //end of cover playlist one
   
 
@@ -406,28 +425,6 @@ gym_playlist_one_btn.addEventListener('click',function(){
       main_container.style.marginBottom = '100px'
       gym_playlist_one_btn.textContent = 'fast_forward'
       playlist_one_btn.textContent = 'play_arrow'
-      if(a < gym_playlist_audio.length - 1 ){
-         b++
-         play_show_audio_btn.textContent = 'pause_arrow'
-         play_show_audio_src.setAttribute('src',gym_playlist_audio[b].audio_src )
-         play_show_audio_src.play()
-         document.title = gym_playlist_audio[b].audio_author + ' / ' + gym_playlist_audio[b].audio_name
-         show_playing_img.src = gym_playlist_audio[b].audio_cover
-        show_playing_artist_name.innerHTML = gym_playlist_audio[b].audio_author
-        show_playing_title.innerHTML = gym_playlist_audio[b].audio_name
-         }else {
-         b = 0
-        play_show_audio_btn.textContent = 'pause_arrow'
-        play_show_audio_src.setAttribute('src',gym_playlist_audio[b].audio_src )
-         play_show_audio_src.play()
-        document.title = gym_playlist_audio[b].audio_author + ' / ' + gym_playlist_audio[b].audio_name
-        show_playing_img.src = gym_playlist_audio[b].audio_cover
-        show_playing_artist_name.innerHTML = gym_playlist_audio[b].audio_author
-        show_playing_title.innerHTML = gym_playlist_audio[b].audio_name
-       }
-    })
-    
-   play_show_audio_src.addEventListener('ended',function(){
       if(b < gym_playlist_audio.length - 1 ){
          b++
          play_show_audio_btn.textContent = 'pause_arrow'
@@ -448,5 +445,28 @@ gym_playlist_one_btn.addEventListener('click',function(){
         show_playing_title.innerHTML = gym_playlist_audio[b].audio_name
        }
     })
+    
+  function gymEnd(){
+      if(b < gym_playlist_audio.length - 1 ){
+         b++
+         play_show_audio_btn.textContent = 'pause_arrow'
+         play_show_audio_src.setAttribute('src',gym_playlist_audio[b].audio_src )
+         play_show_audio_src.play()
+         document.title = gym_playlist_audio[b].audio_author + ' / ' + gym_playlist_audio[b].audio_name
+         show_playing_img.src = gym_playlist_audio[b].audio_cover
+        show_playing_artist_name.innerHTML = gym_playlist_audio[b].audio_author
+        show_playing_title.innerHTML = gym_playlist_audio[b].audio_name
+         }else {
+         b = 0
+        play_show_audio_btn.textContent = 'pause_arrow'
+        play_show_audio_src.setAttribute('src',gym_playlist_audio[b].audio_src )
+         play_show_audio_src.play()
+        document.title = gym_playlist_audio[b].audio_author + ' / ' + gym_playlist_audio[b].audio_name
+        show_playing_img.src = gym_playlist_audio[b].audio_cover
+        show_playing_artist_name.innerHTML = gym_playlist_audio[b].audio_author
+        show_playing_title.innerHTML = gym_playlist_audio[b].audio_name
+       }
+    }
+    play_show_audio_src.addEventListener('ended',gymEnd)
 
 //end of gym Playlist cover one
