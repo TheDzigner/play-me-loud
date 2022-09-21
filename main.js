@@ -22,7 +22,7 @@ let count_b = 0
 const data = {
   title : 'Free online music', 
   text : 'click to play now', 
-  url : 'location.href'
+
 }
 
 function my_data(){
