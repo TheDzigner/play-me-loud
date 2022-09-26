@@ -12,28 +12,34 @@
    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <title>Play Me Loud</title>
   <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer ></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<script src="main.js" defer ></script>
+  <script src="playlist_1.js" defer ></script>
+  <script src="gym_playlist.js" defer ></script>
+  <script src="traumazine.js" defer></script>
    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
    
-</head>
+</head> 
 
 <body>
 
 <header>
   <div class="app_icon">
-   <img src="/logo/sound.png" alt="">
+   <img src="/cover/sound(1).png" alt="">
     <input type="text" value="" maxlength="10"  id="username">
   </div>
-  <button class="material-icons-round" onclick="my_data()">
-    settings 
+  <button class="material-icons-round">
+    dashboard 
   </button>
 </header>
 
 
+
+
+
 <div class="main"> 
+
 <div class="recommended_playlist_container">
-  <h4>Recommended Playlist 🔥</h4>
+  <h4>Playlists 🔥</h4>
   <div class="recommended_playlist_wrapper">
     
     <div class="recommended_playlist">
@@ -43,7 +49,7 @@
         <button class="material-icons-round" id="playlist_one_btn">
           play_arrow 
         </button>
-      <audio src="" id=""></audio>
+      <audio src="" id="playlist_one_audio_src"></audio>
       </div>
     </div>
     
@@ -83,17 +89,17 @@
 
 
 <div class="recommended_album_container">
-  <h4>Recommended Albums 🔥</h4>
+  <h4>Trending Albums 🔥 </h4>
   <div class="recommended_album_wrapper">
     
     <div class="recommended_album">
       <img src="/cover/megan_traumazine.jpg" alt="">
       <div class="recommended_album_artist">
         <p>Megan Thee Stallion / Traumazine</p>
-        <button class="material-icons-round" id="">
+        <button class="material-icons-round" id="traumazine_album_btn">
           play_arrow 
         </button>
-      <audio src="" id=""></audio>
+      <audio src="" id="traumazine_audio_src"></audio>
       </div>
     </div>
         <div class="recommended_album">
@@ -158,12 +164,13 @@
   <div class="gym_playlist_wrapper">
 
     <div class="gym_playlist">
-      <img src="" alt="" id="gym_playlist_1_covers">
+      <img  id="gym_playlist_1_covers">
       <div class="gym_playlist_artist">
         <p>Dababy, Cordea, Snot, iann Dior, Zaytoven, Young Thug, Big Sean, Lil Tecca</p>
         <button class="material-icons-round" id="gym_playlist_one_btn">
           play_arrow 
         </button>
+        <audio src="" id="gym_playlist_1_audio_src"></audio>
       </div>
     </div>
     
@@ -239,12 +246,8 @@
 </div>
 
 
-
-
-
-
-
 </div>
+
 
 <div class="show_playing_container">
   <div class="show_playing_cover">
@@ -255,14 +258,20 @@
     <p></p>
   </div>
  <div class="show_playing_button">
-    <button class="material-icons-round" id="play_show_audio_btn">
-    play_arrow
-  </button> 
-  <audio id="play_show_audio_src"></audio>
+    <img src="/cover/AnimatedAudio.gif">
  </div>
-</div>
+</div> 
 
 
+<button class="feedback">
+     <span class="material-icons-round">
+     feedback
+      </span> 
+</button>
+
+
+
+  
 
 </body>
 </html>

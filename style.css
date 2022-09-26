@@ -9,17 +9,17 @@
 
 @font-face {
   font-family: TextHeader ;
-  src : "/font_family/GothamBold.ttf"
+  src : "/font_family/Helvetica-Bold.ttf"
 }
  
 @font-face {
   font-family: TextParagraph;
-  src : "/font_family/GothamLight.ttf"
+  src : "/font_family/Helvetica.ttf"
 }
 
 @font-face {
   font-family: FontUsername;
-  src : "/font_family/GothamBold.ttf"
+  src : "/font_family/Helvetica-Bold.ttf"
 }
 *
 {
@@ -31,6 +31,7 @@
 body
 {
   max-width:600px ;
+  min-height:100vh;
   margin:auto auto auto auto ;
   transition:all .2s ease-in-out ;
   background:var(--background_color);
@@ -86,13 +87,13 @@ header .app_icon img
   object-fit:cover ;
 }
 
-header button 
+header .material-icons-round
 {
-  outline:none ;
+  outline:none;
   background:transparent;
   color: var(--text_color);
   border:1px solid transparent ;
-  font-size:1.2em ;
+  font-size:1.3em ;
 }
 
 
@@ -100,10 +101,13 @@ header button
 {
  min-height:100vh;
 } 
-
+.main.padding_bottom
+{
+  padding-bottom: 100px ;
+}
 .recommended_playlist_container 
 {
-  margin:40% auto 0 ;
+  margin:30% auto 0 ;
   width:100%;
   max-width:600px ;
   height:310px;
@@ -114,6 +118,7 @@ header button
   font-weight:700 ;
   color: var(--text_header_color);
   font-family: TextHeader ;
+  padding:10px ;
 }
 .recommended_playlist_wrapper 
 {
@@ -145,7 +150,7 @@ header button
   height:100%;
   object-fit:cover ;
   box-shadow:7px 7px 0 var(--header),
-  9px 9px 2px var(--text_color) ;
+  9px 9px 0 var(--text_color) ;
 }
 
 .recommended_playlist_artist 
@@ -456,6 +461,7 @@ header button
 .show_playing_container.active
 {
  height:85px;
+ transform-origin: top ;
  transition : height 100ms ease-out;
 transition-timing-function: cubic-bezier(.58, -0.36, .88, .72);
 }
@@ -513,13 +519,27 @@ transition-timing-function: cubic-bezier(.58, -0.36, .88, .72);
   place-items: center ;
 }
 
-.show_playing_button button 
+.show_playing_button img
+{
+  width:40px;
+  object-fit:cover ;
+  transform:scale(4);
+}
+
+
+.feedback 
+{
+  position: fixed;
+  bottom:17%;
+  right:10%;
+  z-index:100;
+  background:transparent ;
+  border:1px solid transparent;
+}
+
+.feedback  span 
 {
   display:block ;
-  background:transparent;
-  border:1px solid transparent;
-  color: var(--text_color);
-  font-size:3em ;
-  width:35px;
-  height:40px;
+  font-size:1.2em ;
+  color: white ;
 }
