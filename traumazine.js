@@ -1,5 +1,6 @@
 let traumazine_album_btn = document.getElementById('traumazine_album_btn')
 var traumazine_audio_src = document.getElementById('traumazine_audio_src')
+var favicon = document.getElementById('favicon')
 
 let t = 0
 
@@ -111,10 +112,12 @@ function traumazine_btn(){
         setTimeout(function() {
           show_playing_container.classList.add('active')
         }, 100)
-        main_container.style.marginBottom = '100px'
         traumazine_audio_src.play()
         traumazine_album_btn.textContent = 'pause_arrow'
         
+          favicon.setAttribute('href',traumazine_audio[t].audio_cover)
+
+        document.title = traumazine_audio[t].audio_author + ' / ' + traumazine_audio[t].audio_name
         show_playing_img.setAttribute('src', traumazine_audio[t].audio_cover)
         show_playing_title.innerHTML = traumazine_audio[t].audio_name
         show_playing_artist_name.innerHTML = traumazine_audio[t].audio_author
@@ -140,6 +143,8 @@ function traumazine_btn(){
         t++
         traumazine_audio_src.setAttribute('src', traumazine_audio[t].audio_src)
         traumazine_audio_src.play()
+        favicon.setAttribute('href',traumazine_audio[t].audio_cover)
+        document.title = traumazine_audio[t].audio_author + ' / ' + traumazine_audio[t].audio_name
         show_playing_container.classList.remove('active')
         setTimeout(function() {
           show_playing_container.classList.add('active')
@@ -150,6 +155,8 @@ function traumazine_btn(){
         t = 0 
         traumazine_audio_src.setAttribute('src', traumazine_audio[t].audio_src)
         traumazine_audio_src.play()
+        favicon.setAttribute('href',traumazine_audio[t].audio_cover)
+        document.title = traumazine_audio[t].audio_author + ' / ' + traumazine_audio[t].audio_name
         show_playing_container.classList.remove('active')
         setTimeout(function() {
           show_playing_container.classList.add('active')

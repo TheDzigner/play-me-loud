@@ -3,6 +3,7 @@ var show_playing_img = document.getElementById('show_playing_img')
 var gym_playlist_one_btn = document.getElementById('gym_playlist_one_btn')
 var show_playing_artist_name =  document.querySelector('.show_playing_artist h5')
 var show_playing_title = document.querySelector('.show_playing_artist p')
+var favicon = document.getElementById('favicon')
 
 var gym_playlist_1_audio_src = document.getElementById('gym_playlist_1_audio_src')
 var show_playing_container = document.querySelector('.show_playing_container')
@@ -86,13 +87,16 @@ setInterval('changeGym_playlist_1_covers()', delay_b)
 
 function gym_playlist_1_playbtn() {
   if (gym_playlist_1_audio_src.paused) {
+    gym_playlist_1_audio_src.play()
+  gym_playlist_one_btn.textContent = 'play_arrow'
+  favicon.setAttribute('href',gym_playlist_audio[b].audio_cover)
+  document.title = gym_playlist_audio[b].audio_author + ' / ' + gym_playlist_audio[b].audio_name
 show_playing_container.classList.remove('active')
  main_container.classList.add('padding_bottom')
 setTimeout(function() {
   show_playing_container.classList.add('active')
 }, 100)   
-    gym_playlist_1_audio_src.play()
-  gym_playlist_one_btn.textContent = 'play_arrow'
+    
     
     show_playing_img.setAttribute('src', gym_playlist_audio[b].audio_cover)
     show_playing_title.innerHTML = gym_playlist_audio[b].audio_name
@@ -119,6 +123,8 @@ gym_playlist_1_audio_src.addEventListener("ended", function() {
     b++
     gym_playlist_1_audio_src.setAttribute('src', gym_playlist_audio[b].audio_src)
     gym_playlist_1_audio_src.play()
+    favicon.setAttribute('href',gym_playlist_audio[b].audio_cover)
+    document.title = gym_playlist_audio[b].audio_author + ' / ' + gym_playlist_audio[b].audio_name
     show_playing_container.classList.remove('active')
     setTimeout(function() {
       show_playing_container.classList.add('active')
@@ -130,6 +136,8 @@ gym_playlist_1_audio_src.addEventListener("ended", function() {
     b = 0
     gym_playlist_1_audio_src.setAttribute('src', gym_playlist_audio[b].audio_src)
     gym_playlist_1_audio_src.play()
+    favicon.setAttribute('href',gym_playlist_audio[b].audio_cover)
+    document.title = gym_playlist_audio[b].audio_author + ' / ' + gym_playlist_audio[b].audio_name
     show_playing_container.classList.remove('active')
     setTimeout(function() {
       show_playing_container.classList.add('active')

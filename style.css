@@ -118,7 +118,6 @@ header .material-icons-round
   font-weight:700 ;
   color: var(--text_header_color);
   font-family: TextHeader ;
-  padding:10px ;
 }
 .recommended_playlist_wrapper 
 {
@@ -284,7 +283,7 @@ header .material-icons-round
 
 .recommended_album_container 
 {
-  margin:4% auto 0;
+  margin:17% auto 0;
   width:100%;
   max-width:600px;
   height:290px;

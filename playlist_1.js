@@ -2,7 +2,7 @@ var main_container = document.querySelector('.main')
 var show_playing_img = document.getElementById('show_playing_img')
 var show_playing_artist_name =  document.querySelector('.show_playing_artist h5')
 var show_playing_title = document.querySelector('.show_playing_artist p')
-
+var favicon = document.getElementById('favicon')
 var show_playing_container = document.querySelector('.show_playing_container')
 var playlist_one_audio_src = document.getElementById('playlist_one_audio_src')
 const playlist_one_btn = document.getElementById('playlist_one_btn')
@@ -238,6 +238,10 @@ function changePlalist_one_cover(){
     
     playlist_one_btn.addEventListener('click',function(){
       if (playlist_one_audio_src.paused) {
+        playlist_one_audio_src.play()
+        playlist_one_btn.textContent = 'pause_arrow'
+        favicon.setAttribute('href', playlist_one_audio[a].audio_cover)
+        document.title = playlist_one_audio[a].audio_author + ' / ' + playlist_one_audio[a].audio_name
         show_playing_container.classList.remove('active')
         main_container.classList.add('padding_bottom')
         setTimeout(function(){
@@ -246,8 +250,6 @@ function changePlalist_one_cover(){
         show_playing_img.setAttribute('src', playlist_one_audio[a].audio_cover)
         show_playing_title.innerHTML = playlist_one_audio[a].audio_name
         show_playing_artist_name.innerHTML = playlist_one_audio[a].audio_author
-        playlist_one_audio_src.play()
-        playlist_one_btn.textContent = 'pause_arrow'
         
         traumazine_audio_src.pause()
         traumazine_album_btn.textContent = 'play_arrow'
@@ -270,6 +272,8 @@ function changePlalist_one_cover(){
         
         playlist_one_audio_src.setAttribute('src', playlist_one_audio[a].audio_src)
         playlist_one_audio_src.play()
+        favicon.setAttribute('href', playlist_one_audio[a].audio_cover)
+        document.title = playlist_one_audio[a].audio_author + ' / ' + playlist_one_audio[a].audio_name
         show_playing_container.classList.remove('active')
         setTimeout(function(){
          show_playing_container.classList.add('active')
@@ -281,6 +285,8 @@ function changePlalist_one_cover(){
         a = 0 
         playlist_one_audio_src.setAttribute('src', playlist_one_audio[a].audio_src)
         playlist_one_audio_src.play()
+        favicon.setAttribute('href', playlist_one_audio[a].audio_cover)
+        document.title = playlist_one_audio[a].audio_author + ' / ' + playlist_one_audio[a].audio_name
         show_playing_container.classList.remove('active')
         setTimeout(function() {
           show_playing_container.classList.add('active')
