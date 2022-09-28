@@ -7,12 +7,21 @@ var favicon = document.getElementById('favicon')
 
 var gym_playlist_1_audio_src = document.getElementById('gym_playlist_1_audio_src')
 var show_playing_container = document.querySelector('.show_playing_container')
-
+open_in_full_gym_1 = document.getElementById('open_in_full_gym_1')
 let gym_playlist_1_covers = document.getElementById('gym_playlist_1_covers');
 let delay_b = 2000
 let b = 0;
 let count_b = 0 
 
+
+
+
+open_in_full_gym_1.addEventListener('click',function(){
+      var aTag = document.createElement('a')
+      aTag.setAttribute('href', '/gymplaylist_1.html')
+      aTag.target = '_parent'
+      window.open(aTag)
+    }) 
 
 
 
@@ -67,6 +76,8 @@ let gym_playlist_audio = [
   }, 
   
     ]
+    
+    
 
 
 function changeGym_playlist_1_covers()
@@ -88,7 +99,7 @@ setInterval('changeGym_playlist_1_covers()', delay_b)
 function gym_playlist_1_playbtn() {
   if (gym_playlist_1_audio_src.paused) {
     gym_playlist_1_audio_src.play()
-  gym_playlist_one_btn.textContent = 'play_arrow'
+  gym_playlist_one_btn.textContent = 'pause_circle'
   favicon.setAttribute('href',gym_playlist_audio[b].audio_cover)
   document.title = gym_playlist_audio[b].audio_author + ' / ' + gym_playlist_audio[b].audio_name
 show_playing_container.classList.remove('active')
@@ -108,7 +119,9 @@ setTimeout(function() {
 
     traumazine_audio_src.pause()
     traumazine_album_btn.textContent = 'play_arrow'
-
+    
+    god_did_audio.pause()
+    god_did_album_btn.textContent = 'play_arrow'
   } else {
     gym_playlist_1_audio_src.pause()
     gym_playlist_one_btn.textContent = 'play_arrow'
