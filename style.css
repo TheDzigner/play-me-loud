@@ -9,18 +9,9 @@
 
 @font-face {
   font-family: TextHeader ;
-  src : "/font_family/Helvetica-Bold.ttf"
+  src : "./font_family/Timeburner-xJB8.ttf "
 }
  
-@font-face {
-  font-family: TextParagraph;
-  src : "/font_family/Helvetica.ttf"
-}
-
-@font-face {
-  font-family: FontUsername;
-  src : "/font_family/Helvetica-Bold.ttf"
-}
 *
 {
   margin:0;
@@ -48,7 +39,7 @@ header
  max-width:600px;
  padding:15px 20px ;
  background:var(--header);
- z-index:20;
+ z-index:30;
  display:flex ;
  justify-content:space-around ;
  align-items:center ;
@@ -141,7 +132,21 @@ header .material-icons-round
   min-width: 180px ;
   height:175px;
   margin:0 20px 70px;
+  position:relative ;
 }
+
+.recommended_playlist span 
+{
+  position:absolute ;
+  right: 5px ;
+  top: 5px ;
+  display:block ;
+  background:#f1edef ;
+  width:25px ;
+  height:25px ;
+  z-index:5;
+  border-radius:5px;
+} 
 
 .recommended_playlist img 
 {
@@ -240,7 +245,22 @@ header .material-icons-round
   height:230px;
   border-radius:5px ;
   width:100%;
+  position: relative ;
 }
+.gym_playlist span 
+{
+  position:absolute ;
+  right: 7px ;
+  top: 7px ;
+  display:block ;
+  background:#f1edef ;
+  width:28px ;
+  height:28px ;
+  z-index:5;
+  border-radius:5px;
+  text-align:center ;
+} 
+
 .gym_playlist img 
 {
   width:100%;
@@ -318,7 +338,20 @@ header .material-icons-round
   min-width: 180px;
   height:175px;
   margin:0 20px 70px;
+  position :relative ;
 }
+.recommended_album span 
+{
+  position:absolute ;
+  right: 5px ;
+  top: 5px ;
+  display:block ;
+  background:#f1edef ;
+  width:25px ;
+  height:25px ;
+  z-index:5;
+  border-radius:5px;
+} 
 
 .recommended_album img 
 {
@@ -398,7 +431,22 @@ header .material-icons-round
   min-width: 180px;
   height:175px;
   margin:0 20px 70px;
+  position:relative ;
 }
+
+.recommended_partyplaylist span 
+{
+  position:absolute ;
+  right: 3px ;
+  top: 10px ;
+  display:block ;
+  background:#f1edef ;
+  width:25px ;
+  height:25px ;
+  z-index:5;
+  border-radius:5px;
+} 
+
 
 .recommended_partyplaylist img
 {
@@ -455,7 +503,7 @@ header .material-icons-round
   height:0;
   transition : height 100ms ease-in;
   transition-timing-function: cubic-bezier(.58, -0.36, .88, .72);
- 
+ z-index:30 ;
 }
 .show_playing_container.active
 {
