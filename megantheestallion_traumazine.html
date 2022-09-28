@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+  <html lang="en-Us"  class="notranslate"  notranslate="no">
+<head>
+  <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+  <link rel="stylesheet" href="expend_page.css" type="text/css" media="all" />
+  <title></title>
+</head>
+<body>
+ 
+ <header>
+  <div class="app_icon">
+   <img src="/cover/sound(1).png" alt="">
+    <input type="text" value="" maxlength="10"  id="username">
+  </div>
+  <button class="material-icons-round">
+    dashboard 
+  </button>
+</header>
+
+
+
+
+  <div class="container">
+    
+    <div class="cover_container">
+      <img src="/cover/20210402_183558.jpg" id="audio_img">
+    </div>
+    
+    <div class="audio_details">
+      <h5 id="show_audio_author"></h5>
+      <p id="show_audio_title"></p>
+    </div>
+    
+    <div class="btns_container">
+      <div class="loop_btn">
+        <span class="material-icons-round" id="loop_btn">
+            repeat_one 
+         </span>
+         <span id="nbaudio"></span>
+      </div>
+      <input type="range" value="0" id="curr_audio_timer">
+      <div class="nav_btn">
+        <button class="material-icons-round" id="prevbtn">
+          fast_rewind 
+        </button>
+          <button class="material-icons-round" id="playbtn">
+            play_circle
+          </button>
+            <button class="material-icons-round" id="nextbtn">
+              fast_forward 
+            </button>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+  
+  <script>
+    
+    var prevbtn = document.getElementById('prevbtn')
+    var playbtn = document.getElementById('playbtn')
+    var nextbtn = document.getElementById('nextbtn')
+    var audio_img = document.getElementById('audio_img')
+    var show_audio_author = document.getElementById('show_audio_author')
+    var show_audio_title = document.getElementById('show_audio_title')
+    var curr_audio_timer = document.getElementById('curr_audio_timer')
+    var loop_btn = document.querySelector('#loop_btn')
+    var nbaudio = document.getElementById('nbaudio')
+    var curr_audio = document.createElement('audio')
+    curr_audio.loop = false
+    i = 0 
+    
+    let audio = [
+  {
+    audio_src : '/traumazine_album/ Megan Thee Stallion - Her.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion', 
+    audio_name : 'Her'
+  },
+  {
+    audio_src : '/traumazine_album/ Megan Thee Stallion - Ungrateful (feat. Key Glock).mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion ft Key Glock', 
+    audio_name : 'Ungrateful'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Budget (feat. Latto).mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion ft Latto', 
+    audio_name : 'Budget'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Gift & A Curse.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion', 
+    audio_name : 'Gift and Curse'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Ms. Nasty.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion', 
+    audio_name : 'Ms. Nasty'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan thee stallion - Nda.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion', 
+    audio_name : 'NDA'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Not Nice.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion', 
+    audio_name : 'Not Nice'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Red Wine.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion', 
+    audio_name : 'Red Wine'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Who Me (feat. Pooh Shiesty).mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion ft Pooh Shiesty', 
+    audio_name : 'Who Me'
+  }, 
+  {
+    audio_src : '/traumazine_album/ Megan Thee Stallion - Consistency (feat. Jhené Aiko).mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion ft Jhené Aiko', 
+    audio_name : 'Consistency'
+  }, 
+  {
+    audio_src : '/traumazine_album/ Megan Thee Stallion - Sweetest Pie (feat. Dua Lipa).mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion ft Dua Lipa', 
+    audio_name : 'Sweetest Pie'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Anxiety.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion', 
+    audio_name : 'Anxiety'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Flip Flop.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion', 
+    audio_name : 'Flip Flop'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Pressurelicious (feat. Future).mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion ft Future', 
+    audio_name : 'Pressurelicious'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Scary feat. Rico Nasty.mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion ft Rico Nasty', 
+    audio_name : 'Scary'
+  }, 
+  {
+    audio_src : '/traumazine_album/Megan Thee Stallion - Southside Royalty Freestyle (ft. Sauce Walka, Big Pokey & Lil Keke).mp3', 
+    audio_cover : '/traumazine_album/megan_traumazine.jpg', 
+    audio_author : 'Megan Thee Stallion ft Sauce Walka, Big Pokey, Lil Keke', 
+    audio_name : 'Southside Royalty Freestyle'
+  }
+ ]
+
+    
+    
+    
+    var usernameInput = document.getElementById('username')
+  var username = localStorage.getItem('username')
+     usernameInput.value = username   
+      username == null? usernameInput.value = 'JohnDoe123' : usernameInput.value = username
+     
+     
+
+   loop_btn.addEventListener('click',function(){
+     if(curr_audio.loop == false){
+       curr_audio.loop = true 
+       loop_btn.classList.add('active')
+     }else {
+       curr_audio.loop = false
+       loop_btn.classList.remove('active')
+     }
+   })
+
+
+curr_audio_timer.addEventListener('input',function(){
+  curr_audio.currentTime = this.value 
+  this.max = Math.floor(curr_audio.duration)
+})
+
+curr_audio.addEventListener('timeupdate',function(){
+  curr_audio_timer.value =  curr_audio.currentTime
+  curr_audio_timer.max = Math.floor(this.duration)
+})
+    
+    playbtn.addEventListener('click',function(){
+      if(curr_audio.paused){
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+      }else {
+        curr_audio.pause()
+        playbtn.textContent = 'play_circle'
+      }
+    })
+    
+    nextbtn.addEventListener('click',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+      }
+    })
+    
+    prevbtn.addEventListener('click',function(){
+      if(i > 0){
+        i--
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+      }else {
+        i = audio_cover.length - 1 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+      }
+    })
+    
+    curr_audio.addEventListener('ended',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+      } 
+    })
+    
+    window.addEventListener('load',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+        document.body.style.backgroundColor = '#5F5F5F'
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+         document.body.style.backgroundColor = '#5F5F5F'
+      } 
+    })
+    
+  </script>
+ 
+ 
+ 
+</body>
+</html>
+ 
