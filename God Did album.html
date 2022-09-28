@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+  <html lang="en-Us"  class="notranslate"  notranslate="no">
+<head>
+  <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+  <link rel="stylesheet" href="expend_page.css" type="text/css" media="all" />
+  <title></title>
+</head>
+<body>
+ 
+ <header>
+  <div class="app_icon">
+   <img src="/cover/sound(1).png" alt="">
+    <input type="text" value="" maxlength="10"  id="username">
+  </div>
+  <button class="material-icons-round">
+    dashboard 
+  </button>
+</header>
+
+
+
+
+  <div class="container">
+    
+    <div class="cover_container">
+      <img src="/cover/20210402_183558.jpg" id="audio_img">
+    </div>
+    
+    <div class="audio_details">
+      <h5 id="show_audio_author"></h5>
+      <p id="show_audio_title"></p>
+    </div>
+    
+    <div class="btns_container">
+      <div class="loop_btn">
+        <span class="material-icons-round" id="loop_btn">
+            repeat_one 
+         </span>
+         <span id="nbaudio"></span>
+      </div>
+      <input type="range" value="0" id="curr_audio_timer">
+      <div class="nav_btn">
+        <button class="material-icons-round" id="prevbtn">
+          fast_rewind 
+        </button>
+          <button class="material-icons-round" id="playbtn">
+            play_circle
+          </button>
+            <button class="material-icons-round" id="nextbtn">
+              fast_forward 
+            </button>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+  
+  <script>
+    
+    var prevbtn = document.getElementById('prevbtn')
+    var playbtn = document.getElementById('playbtn')
+    var nextbtn = document.getElementById('nextbtn')
+    var audio_img = document.getElementById('audio_img')
+    var show_audio_author = document.getElementById('show_audio_author')
+    var show_audio_title = document.getElementById('show_audio_title')
+    var curr_audio_timer = document.getElementById('curr_audio_timer')
+    var loop_btn = document.querySelector('#loop_btn')
+    var nbaudio = document.getElementById('nbaudio')
+    var curr_audio = document.createElement('audio')
+    curr_audio.loop = false
+    i = 0 
+    
+let audio = [
+  {
+    audio_src : '/God Did_album/ DJ Khaled - ASAHD AND AALAM CLOTH TALK.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft ASAHD & Aalam', 
+    audio_name : 'Cloth Talk'
+  }, 
+  {
+    audio_src : '/God Did_album/ DJ Khaled - BILLS PAID  ft. Latto, City Girls.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Latto & City Girls', 
+    audio_name : 'Bills Paid'
+  }, 
+  {
+    audio_src : '/God Did_album/ DJ Khaled - GRATEFUL ft. Vory.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Vory', 
+    audio_name : 'Grateful'
+  }, 
+  {
+    audio_src : '/God Did_album/ DJ Khaled - LET\'S PRAY  ft. Don Toliver, Travis Scott.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Don Toliver & Travis Scott', 
+    audio_name : 'Let\'s Pray'
+  }, 
+  {
+    audio_src : '/God Did_album/ DJ Khaled - PARTY  ft. Quavo, Takeoff.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Quavo & Takeoff', 
+    audio_name : 'Party'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - BEAUTIFUL ft. Future, SZA.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Future & Sza', 
+    audio_name : 'Beautiful'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - BIG TIME ft. Future, Lil Baby.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Future & Lil Baby', 
+    audio_name : 'Big Time'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - FAM GOOD, WE GOOD ft. Gunna, Roddy Ricch.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'Dj Khaled ft Gunna & Roddy Ricch', 
+    audio_name : 'Fam Good, We Good'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - GOD DID ft. Rick Ross, Lil Wayne, Jay-Z, John Legend, Fridayy.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Rick Ross, Lil Wayne, Jay-Z, John Legend, and Fridayy', 
+    audio_name : 'God Did'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - IT AIN\'T SAFE ft. Nardo Wick, Kodak Black.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Nardo Rick & Kodak Black', 
+    audio_name : 'It Ain\'t Safe'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - JADAKISS INTERLUDE ft. Jadakiss.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Jadakiss', 
+    audio_name : 'JADAKISS Interlude'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - Juice WRLD DID  ft. Juice WRLD.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Juice WRLD', 
+    audio_name : 'Juice WRLD Did'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - KEEP GOING  ft. Lil Durk, 21 Savage, Roddy Ricch.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Lil Durk, 21 Savage, Roddy Ricch', 
+    audio_name : 'Keep Going'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - NO SECRET ft. Drake.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Drake', 
+    audio_name : 'No Secret'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - STAYING ALIVE  ft. Drake, Lil Baby.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Drake, & Lil Baby', 
+    audio_name : 'Staying Alive'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - THESE STREETS KNOW MY NAME Ft. Skillibeng, Buju Banton, Capleton, Bounty Killer & Sizzla.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'DJ Khaled ft Skillibeng, Buju Banton, Capleton, Bounty Killer, Sizzla', 
+    audio_name : 'These Streets Know My Name'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - USE THIS GOSPEL ft. Kanye West, Eminem.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'Dj Khaled ft Kanye West & Eminem', 
+    audio_name : 'Use This Gospel'
+  }, 
+  {
+    audio_src : '/God Did_album/DJ Khaled - WAY PAST LUCK ft. 21 Savage.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'Dj Khaled ft 21 Savage', 
+    audio_name : 'Way Past Luck'
+  }
+
+  
+  ]
+    
+    
+    
+    var usernameInput = document.getElementById('username')
+  var username = localStorage.getItem('username')
+     usernameInput.value = username   
+      username == null? usernameInput.value = 'JohnDoe123' : usernameInput.value = username
+     
+     
+
+   loop_btn.addEventListener('click',function(){
+     if(curr_audio.loop == false){
+       curr_audio.loop = true 
+       loop_btn.classList.add('active')
+     }else {
+       curr_audio.loop = false
+       loop_btn.classList.remove('active')
+     }
+   })
+
+
+curr_audio_timer.addEventListener('input',function(){
+  curr_audio.currentTime = this.value 
+  this.max = Math.floor(curr_audio.duration)
+})
+
+curr_audio.addEventListener('timeupdate',function(){
+  curr_audio_timer.value =  curr_audio.currentTime
+  curr_audio_timer.max = Math.floor(this.duration)
+})
+    
+    playbtn.addEventListener('click',function(){
+      if(curr_audio.paused){
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+      }else {
+        curr_audio.pause()
+        playbtn.textContent = 'play_circle'
+      }
+    })
+    
+    nextbtn.addEventListener('click',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+      }
+    })
+    
+    prevbtn.addEventListener('click',function(){
+      if(i > 0){
+        i--
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+      }else {
+        i = audio_cover.length - 1 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+      }
+    })
+    
+    curr_audio.addEventListener('ended',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+      } 
+    })
+    
+    window.addEventListener('load',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+        document.body.style.background = '#254E31'
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+         document.body.style.background = '#254E31'
+      } 
+    })
+    
+  </script>
+ 
+ 
+ 
+</body>
+</html>
+ 
