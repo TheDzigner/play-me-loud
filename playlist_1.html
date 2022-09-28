@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+  <html lang="en-Us"  class="notranslate"  notranslate="no">
+<head>
+  <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+  <link rel="stylesheet" href="expend_page.css" type="text/css" media="all" />
+  <title></title>
+</head>
+<body>
+ 
+ <header>
+  <div class="app_icon">
+   <img src="/cover/sound(1).png" alt="">
+    <input type="text" value="" maxlength="10"  id="username">
+  </div>
+  <button class="material-icons-round">
+    dashboard 
+  </button>
+</header>
+
+
+
+
+  <div class="container">
+    
+    <div class="cover_container">
+      <img src="/cover/20210402_183558.jpg" id="audio_img">
+    </div>
+    
+    <div class="audio_details">
+      <h5 id="show_audio_author"></h5>
+      <p id="show_audio_title"></p>
+    </div>
+    
+    <div class="btns_container">
+      <div class="loop_btn">
+        <span class="material-icons-round" id="loop_btn">
+            repeat_one
+         </span>
+         <span id="nbaudio"></span>
+      </div>
+      <input type="range" value="0" id="curr_audio_timer">
+      <div class="nav_btn">
+        <button class="material-icons-round" id="prevbtn">
+          fast_rewind 
+        </button>
+          <button class="material-icons-round" id="playbtn">
+            play_circle
+          </button>
+            <button class="material-icons-round" id="nextbtn">
+              fast_forward 
+            </button>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+  
+  <script>
+    
+    var prevbtn = document.getElementById('prevbtn')
+    var playbtn = document.getElementById('playbtn')
+    var nextbtn = document.getElementById('nextbtn')
+    var audio_img = document.getElementById('audio_img')
+    var show_audio_author = document.getElementById('show_audio_author')
+    var show_audio_title = document.getElementById('show_audio_title')
+    var curr_audio_timer = document.getElementById('curr_audio_timer')
+    var loop_btn = document.querySelector('#loop_btn')
+    var nbaudio = document.getElementById('nbaudio')
+    var curr_audio = document.createElement('audio')
+    curr_audio.loop = false
+    i = 0 
+    
+    var usernameInput = document.getElementById('username')
+  var username = localStorage.getItem('username')
+     usernameInput.value = username   
+      username == null? usernameInput.value = 'JohnDoe123' : usernameInput.value = username
+     
+     
+let audio = [
+  {
+    audio_src :'/audio/Kodak Black - Usain Boo .mp3', 
+    audio_cover : '/cover/usain_boo.jpg', 
+    audio_author : 'Kodak Black', 
+    audio_name : 'Usain Boo', 
+    audio_bg : '#272F36'
+  }, 
+  {
+    audio_src : '/audio/Lil Yachty - MICKEY ft. Offset, Lil Baby.mp3', 
+    audio_cover : '/cover/Lil_Yachty_–_Lil_Boat_2.png', 
+    audio_author : 'Lil Yatchy ft Offset & Lil Baby', 
+    audio_name : 'Mickey Mouse', 
+    audio_bg : '#E68B57'
+  }, 
+  {
+    audio_src : '/audio/Quavo & Takeoff - Hotel Lobby.mp3', 
+    audio_cover : '/cover/migos_hotel_lobby.jpg', 
+    audio_author : 'Quavo & Takeoff', 
+    audio_name : 'Hotel Lobby', 
+    audio_bg : '#F9F3E8'
+  }, 
+  {
+    audio_src : '/audio/SleazyWorld Go - Step 1 ft. Offset.mp3', 
+    audio_cover : '/cover/step_one.jpeg', 
+    audio_author : 'SleazyWorld Go ft Offset', 
+    audio_name : 'Step One', 
+    audio_bg : '#496F83'
+  }, 
+  {
+    audio_src : '/audio/SPOTEMGOTTEM_Feat._Pooh_Shiesty_-Beatbox_2-_(Official_Video)(128k).mp3', 
+    audio_cover : '/cover/beatbox.jpeg', 
+    audio_author : 'Spotemgottem ft Pooh_Shiesty', 
+    audio_name : 'Beatbox', 
+    audio_bg : '#FBF0EB'
+  }, 
+  {
+    audio_src : '/audio/Stripper Bowl.mp3', 
+    audio_cover : '/cover/quality_vol2.jpg', 
+    audio_author : 'Migos', 
+    audio_name : 'Stripper Bowl', 
+    audio_bg : '#151618'
+  }, 
+  {
+    audio_src : '/audio/YNW Melly - Murder On My Mind.mp3', 
+    audio_cover : '/cover/murder_on_my_mind.jpg', 
+    audio_author : 'YNW Melly', 
+    audio_name : 'Murder On My Mind', 
+    audio_bg : '#272727'
+  }, 
+  {
+    audio_src : '/audio/yt5s.com - Fivio Foreign - Magic City (Official Video) ft. Quavo (128 kbps).mp3', 
+    audio_cover : '/cover/magic_city.png', 
+    audio_author : 'Fivio Foreign ft Quavo', 
+    audio_name : 'Magic City', 
+    audio_bg : '#272727'
+  }, 
+  {
+    audio_src : '/audio/yt5s.com - Remble - Rocc Climbing (feat. Lil Yachty) [Official Music Video] (128 kbps).mp3', 
+    audio_cover : '/cover/rocc_climbing.jpeg', 
+    audio_author : 'Remble ft Lil Yatchy', 
+    audio_name : 'Rocc Climbing', 
+    audio_bg : '#272822'
+  }, 
+  {
+    audio_src : '/audio/yt5s.com - Takeoff, Rich The Kid - Crypto (Official Video) (128 kbps).mp3', 
+    audio_cover : '/cover/crypto.jpeg', 
+    audio_author : 'Rich The Kid ft Takeoff', 
+    audio_name : 'Crypto', 
+    audio_bg : '#363A77'
+  }, 
+  {
+    audio_src : '/audio/ - Rich The Kid, Quavo & TakeOff - Too Blessed.mp3', 
+    audio_cover : '/cover/too_blessed.jpeg', 
+    audio_author : 'Rich The Kid ft Quavo & Takeoff', 
+    audio_name : 'Too Blessed', 
+    audio_bg : '#BCD2E5'
+  }, 
+  {
+    audio_src : '/audio/ -Carnage ft. Tyga, OhGeesy & Takeoff - Hella Neck.mp3', 
+    audio_cover : '/cover/hella_neck.jpg', 
+    audio_author : 'Carnage ft Tyga, Takeoff & OhGeesy', 
+    audio_name : 'Hella Neck', 
+    audio_bg : '#222222'
+  }, 
+  {
+    audio_src : '/audio/- Future ft. Young Thug & Quavo - Upscale.mp3', 
+    audio_cover : '/cover/upscale.jpg', 
+    audio_author : 'Future ft Young Thug & Quavo', 
+    audio_name : 'Upscale', 
+    audio_bg : '#D8D8D8'
+  }, 
+  {
+    audio_src : '/audio/- Lil Tjay - Beat The Odds.mp3', 
+    audio_cover : '/cover/Lil-Tjay-Beat-The-Odds.jpg', 
+    audio_author : 'Lil Tjay', 
+    audio_name : 'Beat The Odds', 
+    audio_bg : '#CCC4BC'
+  }, 
+  {
+    audio_src : '/audio/- Offset - Cinco De Mayo Feat. Young Nudy.mp3', 
+    audio_cover : '/cover/cinco_de_mayo.png', 
+    audio_author : 'Offset ft Young Nudy', 
+    audio_name : 'Cinco De Mayo', 
+    audio_bg : '#EAA604'
+  }, 
+  {
+    audio_src : '/audio/- Quavo x Evander Griiim - Baile.mp3', 
+    audio_cover : '/cover/quavo_baile.jpg', 
+    audio_author : 'Quavo ft Evander Griiime', 
+    audio_name : 'Baile', 
+    audio_bg : '#F1F1ED'
+  }, 
+  {
+    audio_src : '/audio/-Young Thug - The London (ft. J. Cole & Travis Scott).mp3', 
+    audio_cover : '/cover/london.jpg', 
+    audio_author : 'Young Thug ft J. Cole & Travis Scott', 
+    audio_name : 'London', 
+    audio_bg : '#2FBC34'
+  }, 
+  {
+    audio_src : '/audio/ -- DJ Khaled - PARTY  ft. Quavo, Takeoff.mp3', 
+    audio_cover : '/cover/party_all.jpeg', 
+    audio_author : 'Quavo & TakeOff', 
+    audio_name : 'Party All The Time', 
+    audio_bg : '#254E31'
+  }, 
+  {
+    audio_src : '/audio/ --Lil Baby x 42 Dugg - We Paid.mp3', 
+    audio_cover : '/cover/my_turn.jpeg', 
+    audio_author : 'Lil Baby x 42 Dugg', 
+    audio_name : 'We Paid', 
+    audio_bg : '#231F4D'
+  }, 
+  {
+    audio_src : '/audio/ --Offset - CODE ft. Moneybagg Yo.mp3', 
+    audio_cover : '/cover/CODECOVER.jpg', 
+    audio_author : 'Offset ft Moneyybagg Yo', 
+    audio_name : 'Code', 
+    audio_bg : '#F5F3F8'
+  }, 
+  {
+    audio_src : '/audio/ --Quavo & Takeoff Ft. Birdman - Big Stunna.mp3', 
+    audio_cover : '/cover/Big-Stunna.jpg', 
+    audio_author : 'Quavo & Takeoff Birdman', 
+    audio_name : 'Big Stunna', 
+    audio_bg : '#7A88A2'
+  }, 
+  {
+    audio_src : '/audio/ --Roddy Ricch - Down Below.mp3', 
+    audio_cover : '/cover/down_below.jpg', 
+    audio_author : 'Roddy Ricch', 
+    audio_name : 'Down Below', 
+    audio_bg : '#E2E1E2'
+  }, 
+  {
+    audio_src : '/audio/ --Trippie Redd – Big 14 feat. Offset & Moneyybagg Yo.mp3', 
+    audio_cover : '/cover/big_14.jpeg', 
+    audio_author : 'Trippie Red ft Offset & Moneyybagg Yo', 
+    audio_name : 'Big 14', 
+    audio_bg : '6D473D'
+  },
+  {
+    audio_src : '/audio/--Offset - 5 4 3 2 1.mp3', 
+    audio_cover : '/cover/54321.png', 
+    audio_author : 'Offset', 
+    audio_name : '5 4 3 2 1', 
+    audio_bg : '#C6D1DB'
+  }, 
+  {
+    audio_src : '/audio/--Lil Baby x Gunna - _Drip Too Hard.mp3', 
+    audio_cover : '/cover/drip_hard.jpg', 
+    audio_author : 'Lil Baby ft Gunna', 
+    audio_name : 'Drip Too Hard', 
+    audio_bg : '#E3D8C3'
+  }, 
+  {
+    audio_src : '/audio/Metro Boomin - Space Cadet (feat. Gunna).mp3', 
+    audio_cover : '/cover/space_cadet.png', 
+    audio_author : 'Metro Boomin ft Gunna', 
+    audio_name : 'Space Cadet', 
+    audio_bg : '#FDF8C1'
+  }, 
+  {
+    audio_src : '/audio/Armani White - BILLIE EILISH.mp3', 
+    audio_cover : '/cover/armwhitecover.jpg', 
+    audio_author : 'Armani White', 
+    audio_name : 'BILLIE EILISH', 
+    audio_bg : '#DDDADB'
+  }, 
+  {
+    audio_src : '/audio/Central Cee doja.mp3', 
+    audio_cover : '/cover/central cee doja.png', 
+    audio_author : 'Central Cee', 
+    audio_name : 'Doja', 
+    audio_bg : '#D2E1F2'
+  }, 
+  {
+    audio_src : '/audio/Jocks on u.mp3', 
+    audio_cover : '/cover/jokesonu.jpg', 
+    audio_author : 'Kado', 
+    audio_name : 'Jocks On You', 
+    audio_bg : '#E5F8E4'
+  }, 
+  {
+    audio_src : '/audio/Lil uzi vert flex up.mp3', 
+    audio_cover : '/cover/flex up.jpg', 
+    audio_author : 'Lil Uzi Vert', 
+    audio_name : 'Flex Up', 
+    audio_bg : '#A3A0AB'
+  }, 
+  {
+    audio_src : '/audio/MTTM DonDon rainy days.mp3', 
+    audio_cover : '/cover/rainy days.jpg', 
+    audio_author : 'MTTM DonDon', 
+    audio_name : 'Rainy Days', 
+    audio_bg : '#7890B2'
+  }, 
+  {
+    audio_src : '/audio/Pnb rock middle child ft xxxTentation.mp3', 
+    audio_cover : '/cover/pnb rock middle child.jpg', 
+    audio_author : 'Pnb Rock ft XXXTentation', 
+    audio_name : 'Middle Child', 
+    audio_bg : '#311C7A'
+  }, 
+  ]
+
+   loop_btn.addEventListener('click',function(){
+     if(curr_audio.loop == false){
+       curr_audio.loop = true 
+       loop_btn.classList.add('active')
+     }else {
+       curr_audio.loop = false
+       loop_btn.classList.remove('active')
+     }
+   })
+
+
+curr_audio_timer.addEventListener('input',function(){
+  curr_audio.currentTime = this.value 
+  this.max = Math.floor(curr_audio.duration)
+})
+
+curr_audio.addEventListener('timeupdate',function(){
+  curr_audio_timer.value =  curr_audio.currentTime
+  curr_audio_timer.max = Math.floor(this.duration)
+})
+    
+    playbtn.addEventListener('click',function(){
+      if(curr_audio.paused){
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+      }else {
+        curr_audio.pause()
+        playbtn.textContent = 'play_circle'
+      }
+    })
+    
+    nextbtn.addEventListener('click',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+        document.body.style.background = audio[i].audio_bg
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+                 document.body.style.background = audio[i].audio_bg
+      }
+    })
+    
+    prevbtn.addEventListener('click',function(){
+      if(i > 0){
+        i--
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+                document.body.style.background = audio[i].audio_bg
+
+      }else {
+        i = audio_cover.length - 1 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+                document.body.style.background = audio[i].audio_bg
+
+      }
+    })
+    
+    curr_audio.addEventListener('ended',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+                document.body.style.background = audio[i].audio_bg
+
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        curr_audio.play()
+        playbtn.textContent = 'pause_circle'
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+                 document.body.style.background = audio[i].audio_bg
+
+      } 
+    })
+    
+    window.addEventListener('load',function(){
+      if(i < audio.length - 1 ){
+        i++
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+        nbaudio.innerHTML = i + '/' + audio.length
+                document.body.style.background = audio[i].audio_bg
+
+      }else {
+        i = 0 
+        curr_audio.setAttribute('src', audio[i].audio_src)
+        audio_img.src = audio[i].audio_cover
+        show_audio_author.innerHTML = audio[i].audio_author
+        show_audio_title.innerHTML = audio[i].audio_name
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+         nbaudio.innerHTML = i + '/' + audio.length
+          document.body.style.background = audio[i].audio_bg
+
+      } 
+    })
+    
+  </script>
+ 
+ 
+ 
+</body>
+</html>
