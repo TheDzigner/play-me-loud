@@ -3,6 +3,13 @@ var traumazine_audio_src = document.getElementById('traumazine_audio_src')
 var favicon = document.getElementById('favicon')
 
 let t = 0
+var open_in_full_traumazine = document.getElementById('open_in_full_traumazine')
+
+
+open_in_full_traumazine.addEventListener('click',function(){ var aTag = document.createElement('a') aTag.setAttribute('href',  'megantheestallion_traumazine.html
+') aTag.target = '_parent' window.open(aTag) })
+
+
 
 let traumazine_audio = [
   {
