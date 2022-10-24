@@ -1,1 +1,643 @@
 
+<!DOCTYPE html>
+
+  <html lang="en-Us"  class="notranslate"  notranslate="no">
+
+<head>
+
+  <meta charset="UTF-8">
+
+    <meta name="google" content="notranslate">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+  <link rel="stylesheet" href="expend_page.css" type="text/css" media="all" />
+
+  <title></title>
+
+</head>
+
+<body>
+
+ 
+
+ <header>
+
+  <div class="app_icon">
+
+   <img src="/cover/sound(1).png" alt="">
+
+    <input type="text" value="" maxlength="10"  id="username">
+
+  </div>
+
+  <button class="material-icons-round">
+
+    dashboard 
+
+  </button>
+
+</header>
+
+  <div class="container">
+
+    
+
+    <div class="cover_container">
+
+      <img src="/Infinity_link_album/Quavo-Takeoff.jpg" id="audio_img">
+
+    </div>
+
+    
+
+    <div class="audio_details">
+
+      <h5 id="show_audio_author"></h5>
+
+      <p id="show_audio_title"></p>
+
+    </div>
+
+    
+
+    <div class="btns_container">
+
+      <div class="loop_btn">
+
+        <span class="material-icons-round" id="loop_btn">
+
+            repeat_one 
+
+         </span>
+
+         <span id="nbaudio"></span>
+
+      </div>
+
+      <input type="range" value="0" id="curr_audio_timer">
+
+      <div class="nav_btn">
+
+        <button class="material-icons-round" id="prevbtn">
+
+          fast_rewind 
+
+        </button>
+
+          <button class="material-icons-round" id="playbtn">
+
+            play_circle
+
+          </button>
+
+            <button class="material-icons-round" id="nextbtn">
+
+              fast_forward 
+
+            </button>
+
+      </div>
+
+    </div>
+
+    
+
+    
+
+  </div>
+
+  
+
+  
+
+  <script>
+
+    
+
+    var prevbtn = document.getElementById('prevbtn')
+
+    var playbtn = document.getElementById('playbtn')
+
+    var nextbtn = document.getElementById('nextbtn')
+
+    var audio_img = document.getElementById('audio_img')
+
+    var show_audio_author = document.getElementById('show_audio_author')
+
+    var show_audio_title = document.getElementById('show_audio_title')
+
+    var curr_audio_timer = document.getElementById('curr_audio_timer')
+
+    var loop_btn = document.querySelector('#loop_btn')
+
+    var nbaudio = document.getElementById('nbaudio')
+
+    var curr_audio = document.createElement('audio')
+
+    curr_audio.loop = false
+
+    i = 0 
+
+    
+
+    let audio = [
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo & Takeoff - 2.30.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : '2.30'
+
+  },
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo & Takeoff - See Bout It.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff ft Mustard', 
+
+    audio_name : 'See Bout It'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Bars-Into-Captions.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Bars Into Captions'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Big-Stunna-Ft-Birdman.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff ft Birdman', 
+
+    audio_name : 'Big Stunna'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Chocolate-Ft-Young-Thug-Gunna.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff ft YoungThug - Gunna', 
+
+    audio_name : 'Chocolate'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Ft-Gucci-Mane-Us-vs-Them.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff ft Gucci Mane', 
+
+    audio_name : 'US vs Them'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Hell-Yeah.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Hell Yeah'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-HOTEL-LOBBY-Unc-and-Phew.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Hôtel Lobby '
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Integration.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Integration'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Look-This.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Look @ This'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Messy.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Messy'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Mixy-Ft-Summer-Walker-(HiphopKit.com) (1).mp3 ', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff ft Summer Walker', 
+
+    audio_name : 'Mixy'
+
+  }, 
+
+  {
+
+    audio_src :'/Infinity_link_album/Quavo-Takeoff-Not-Out.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Not Out'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Nothing-Changed.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Nothing Changed'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-To-The-Bone-Ft-Nba-YoungBoy.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author :'Quavo & Takeoff ft NBA YoungBoy', 
+
+    audio_name : 'To The Bone'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Tony-Starks.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Tony Starks'
+
+  }, 
+
+  {
+
+    audio_src: '/Infinity_link_album/Quavo-Takeoff-Tools.mp3',
+
+    audio_cover: '/Infinity_link_album/Quavo-Takeoff.jpg',
+
+    audio_author: 'Quavo & Takeoff',
+
+    audio_name: 'Tools'
+
+  }, 
+
+  {
+
+    audio_src : '/Infinity_link_album/Quavo-Takeoff-Two-Infinity-Link.mp3', 
+
+    audio_cover : '/Infinity_link_album/Quavo-Takeoff.jpg', 
+
+    audio_author : 'Quavo & Takeoff', 
+
+    audio_name : 'Two Infinity Link'
+
+  }
+
+ ]
+
+    
+
+    
+
+    
+
+    var usernameInput = document.getElementById('username')
+
+  var username = localStorage.getItem('username')
+
+     usernameInput.value = username   
+
+      username == null? usernameInput.value = 'JohnDoe123' : usernameInput.value = username
+
+     
+
+     
+
+   loop_btn.addEventListener('click',function(){
+
+     if(curr_audio.loop == false){
+
+       curr_audio.loop = true 
+
+       loop_btn.classList.add('active')
+
+     }else {
+
+       curr_audio.loop = false
+
+       loop_btn.classList.remove('active')
+
+     }
+
+   })
+
+curr_audio_timer.addEventListener('input',function(){
+
+  curr_audio.currentTime = this.value 
+
+  this.max = Math.floor(curr_audio.duration)
+
+})
+
+curr_audio.addEventListener('timeupdate',function(){
+
+  curr_audio_timer.value =  curr_audio.currentTime
+
+  curr_audio_timer.max = Math.floor(this.duration)
+
+})
+
+    
+
+    playbtn.addEventListener('click',function(){
+
+      if(curr_audio.paused){
+
+        curr_audio.play()
+
+        playbtn.textContent = 'pause_circle'
+
+      }else {
+
+        curr_audio.pause()
+
+        playbtn.textContent = 'play_circle'
+
+      }
+
+    })
+
+    
+
+    nextbtn.addEventListener('click',function(){
+
+      if(i < audio.length - 1 ){
+
+        i++
+
+        curr_audio.setAttribute('src', audio[i].audio_src)
+
+        curr_audio.play()
+
+        playbtn.textContent = 'pause_circle'
+
+        audio_img.src = audio[i].audio_cover
+
+        show_audio_author.innerHTML = audio[i].audio_author
+
+        show_audio_title.innerHTML = audio[i].audio_name
+
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+
+        nbaudio.innerHTML = i + '/' + audio.length
+
+      }else {
+
+        i = 0 
+
+        curr_audio.setAttribute('src', audio[i].audio_src)
+
+        curr_audio.play()
+
+        playbtn.textContent = 'pause_circle'
+
+        audio_img.src = audio[i].audio_cover
+
+        show_audio_author.innerHTML = audio[i].audio_author
+
+        show_audio_title.innerHTML = audio[i].audio_name
+
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+
+         nbaudio.innerHTML = i + '/' + audio.length
+
+      }
+
+    })
+
+    
+
+    prevbtn.addEventListener('click',function(){
+
+      if(i > 0){
+
+        i--
+
+        curr_audio.setAttribute('src', audio[i].audio_src)
+
+        curr_audio.play()
+
+        playbtn.textContent = 'pause_circle'
+
+        audio_img.src = audio[i].audio_cover
+
+        show_audio_author.innerHTML = audio[i].audio_author
+
+        show_audio_title.innerHTML = audio[i].audio_name
+
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+
+        nbaudio.innerHTML = i + '/' + audio.length
+
+      }else {
+
+        i = audio_cover.length - 1 
+
+        curr_audio.setAttribute('src', audio[i].audio_src)
+
+        curr_audio.play()
+
+        playbtn.textContent = 'pause_circle'
+
+        audio_img.src = audio[i].audio_cover
+
+        show_audio_author.innerHTML = audio[i].audio_author
+
+        show_audio_title.innerHTML = audio[i].audio_name
+
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+
+        nbaudio.innerHTML = i + '/' + audio.length
+
+      }
+
+    })
+
+    
+
+    curr_audio.addEventListener('ended',function(){
+
+      if(i < audio.length - 1 ){
+
+        i++
+
+        curr_audio.setAttribute('src', audio[i].audio_src)
+
+        curr_audio.play()
+
+        playbtn.textContent = 'pause_circle'
+
+        audio_img.src = audio[i].audio_cover
+
+        show_audio_author.innerHTML = audio[i].audio_author
+
+        show_audio_title.innerHTML = audio[i].audio_name
+
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+
+        nbaudio.innerHTML = i + '/' + audio.length
+
+      }else {
+
+        i = 0 
+
+        curr_audio.setAttribute('src', audio[i].audio_src)
+
+        curr_audio.play()
+
+        playbtn.textContent = 'pause_circle'
+
+        audio_img.src = audio[i].audio_cover
+
+        show_audio_author.innerHTML = audio[i].audio_author
+
+        show_audio_title.innerHTML = audio[i].audio_name
+
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+
+         nbaudio.innerHTML = i + '/' + audio.length
+
+      } 
+
+    })
+
+    
+
+    window.addEventListener('load',function(){
+
+      if(i < audio.length - 1 ){
+
+        i++
+
+        curr_audio.setAttribute('src', audio[i].audio_src)
+
+        audio_img.src = audio[i].audio_cover
+
+        show_audio_author.innerHTML = audio[i].audio_author
+
+        show_audio_title.innerHTML = audio[i].audio_name
+
+        document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+
+        nbaudio.innerHTML = i + '/' + audio.length
+
+        document.body.style.backgroundColor = '#5F5F5F'
+
+      }else {
+
+        i = 0 
+
+        curr_audio.setAttribute('src', audio[i].audio_src)
+
+        audio_img.src = audio[i].audio_cover
+
+        show_audio_author.innerHTML = audio[i].audio_author
+
+        show_audio_title.innerHTML = audio[i].audio_name
+
+         document.title = audio[i].audio_author + ' / ' + audio[i].audio_name
+
+         nbaudio.innerHTML = i + '/' + audio.length
+
+         document.body.style.backgroundColor = '#5F5F5F'
+
+      } 
+
+    })
+
+    
+
+  </script>
+
+ 
+
+ 
+
+ 
+
+</body>
+
+</html>
+
+ 
+
