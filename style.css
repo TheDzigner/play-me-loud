@@ -107,6 +107,7 @@ header .material-icons-round
 {
   font-size:1.2em ;
   font-weight:700 ;
+  padding:10px;
   color: var(--text_header_color);
   font-family: TextHeader ;
 }
