@@ -27,22 +27,24 @@
   <div class="container">
     
     <div class="cover_container">
+      <h4> Gym Playlist </h4>
       <img src="/cover/20210402_183558.jpg" id="audio_img">
     </div>
     
     <div class="audio_details">
-      <h5 id="show_audio_author"></h5>
-      <p id="show_audio_title"></p>
+      <h5 id="show_audio_title"></h5>
+      <p id="show_audio_author"></p>
     </div>
     
     <div class="btns_container">
+      <input type="range" value="0" id="curr_audio_timer">
       <div class="loop_btn">
         <span class="material-icons-round" id="loop_btn">
             repeat_one 
          </span>
          <span id="nbaudio"></span>
       </div>
-      <input type="range" value="0" id="curr_audio_timer">
+      
       <div class="nav_btn">
         <button class="material-icons-round" id="prevbtn">
           fast_rewind 
