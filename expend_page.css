@@ -222,7 +222,8 @@ header .material-icons-round
   padding:15px;
 
   color: whitesmoke;
-
+  
+  font-size:1.5em;
 }
 
 .cover_container img 
